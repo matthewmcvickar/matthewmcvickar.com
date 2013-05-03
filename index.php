@@ -10,8 +10,6 @@
     
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <meta name="google-site-verification" content="2mkoImNpjg7cn6NyPYdXHUOAHZH2dRXlifrX_t6czf4" />
-
     <title>Matthew McVickar</title>
 
     <style>
