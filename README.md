@@ -1,3 +1,3 @@
 # matthewmcvickar.com
 
-My personal website and blog.
+My personal website.
