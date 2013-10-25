@@ -91,7 +91,7 @@
     h1
     {
       color: #999;
-      font-size: 2.1em;
+      font-size: 2em;
       font-weight: normal;
       line-height: 1.3;
       text-align: left;
