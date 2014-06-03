@@ -1,3 +1,3 @@
-# Mattemplate
+# [matthewmcvickar.com](http://matthewmcvickar.com)
 
-Matthew Aaron McVickar's frontend web development template.
+My personal website.
