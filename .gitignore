@@ -1,0 +1,10 @@
+# Workflow
+.grunt
+.sass-cache
+bower_components
+node_modules
+tmp
+.ftppass
+
+# OS-generated files
+.DS_Store
