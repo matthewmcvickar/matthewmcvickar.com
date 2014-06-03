@@ -1,0 +1,20 @@
+{
+  "name": "matthewmcvickar.com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/matthewmcvickar/matthewmcvickar.com",
+  "authors": [
+    "Matthew McVickar <matthew@matthewmcvickar.com>"
+  ],
+  "description": "My personal website.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "~3.0.1"
+  }
+}
