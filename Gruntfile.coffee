@@ -3,16 +3,6 @@ module.exports = (grunt) ->
   grunt.initConfig {
     pkg: grunt.file.readJSON('package.json')
 
-    # Copy the Bower-retrieved Normalize.css to a SCSS file that I can include in the source SASS.
-    copy:
-      single:
-        files: [
-          {
-            src: ['bower_components/normalize-css/normalize.css']
-            dest: 'src/css/_normalize.scss'
-          }
-        ]
-
     # SASS and Autoprefixer for CSS, and watcher.
     sass:
       build:
@@ -46,6 +36,5 @@ module.exports = (grunt) ->
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask 'setup', ['copy']
   grunt.registerTask 'default', ['watch']
   grunt.registerTask 'deploy', ['ftp-deploy']
