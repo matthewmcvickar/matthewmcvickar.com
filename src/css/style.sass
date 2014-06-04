@@ -102,33 +102,44 @@ h2
 
 p
   line-height: 1.4
-  margin: $line/2 0
+  margin: 0
+  padding: 0 0 $line/2
+
+  &:last-child
+    padding-bottom: 0
 
 ul
   list-style: none
   margin: 0
   padding: 0
 
+$link-padding: $line/3
+
 li
-  padding: $line/3 0
-  text-indent: -$line/3
+  padding: $link-padding 0
+  text-indent: -$link-padding
 
   a
-    padding: $line/3
+    padding: $link-padding
 
 .intro
+  @include clearfix
+
   img
-    margin-bottom: $line/2
+    margin-bottom: $line
     max-width: 100%
 
 .for-hire
   background: linear-gradient(0deg, $blue*.8 0%, $blue 100%)
   color: white
+  margin-top: $line*2
+  margin-bottom: $line*2
 
   h2
     color: white
     font-size: 28px
     font-weight: bold
+    margin-top: 0
 
   p
     font-size: 18px
@@ -139,10 +150,109 @@ li
     font-weight: bold
 
 
-@media (max-width: 600px)
+@media (min-width: 700px)
+  section:not(.for-hire)
+    display: flex
+    margin-top: $line
+
+    h2
+      flex: 1
+      min-width: 175px
+      margin-top: $link-padding*0.6
+
+      font-size: 18px
+
+    h2 + div,
+    h2 + ul
+      flex: 3
+
+  section.for-hire
+    border-radius: 4px
+    padding: $line
+    margin-left: 0
+    margin-right: 0
+
+    display: flex
+
+    .showoff
+      line-height: 1
+      margin-right: $line
+      width: 175px-$line
+
+      display: flex
+      align-items: center
+      justify-content: center
+
+      span
+        font-family: "American Typewriter", sans-serif
+        font-size: 132px
+        font-weight: bold
+        opacity: .2
+        animation: shake 5s ease-in-out infinite
+        transform-origin: 50% 50%
+
+    .showoff + div
+      flex: 1
+
+    h2
+      margin-top: -3px
+
+  section.links
+    border-bottom: 1px solid $light*1.1
+    margin-bottom: $line
+    padding-bottom: $line
+
+    &:last-child
+      border-bottom: 0
+
+
+@media (min-width: 500px)
+  .intro
+    img
+      float: right
+      margin-left: $line
+      margin-bottom: 0
+      width: 150px
+
+
+@media (max-width: 700px)
   .intro
     h2
       display: none
 
   .for-hire
+    .showoff
+      display: none
+
+  .for-hire
     @include mobile-background-bleed
+
+
+// Shaking exclamation animation.
+
+$deg: 6deg
+
+@keyframes shake
+  0%:
+    transform: rotate(0deg)
+
+  2%:
+    transform: rotate(-$deg)
+
+  4%:
+    transform: rotate($deg)
+
+  6%:
+    transform: rotate(-$deg*1.2)
+
+  8%:
+    transform: rotate($deg*1.4)
+
+  10%:
+    transform: rotate(-$deg)
+
+  12%:
+    transform: rotate(0deg)
+
+  100%:
+    transform: rotate(0deg)
