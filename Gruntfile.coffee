@@ -18,7 +18,7 @@ module.exports = (grunt) ->
         files:
           'build/js/script.js' : 'src/js/script.coffee'
 
-    # SASS and Autoprefixer for CSS, and watcher.
+    # SASS and Autoprefixer for CSS.
     sass:
       build:
         files:
@@ -29,6 +29,16 @@ module.exports = (grunt) ->
         src: 'tmp/css/style.css'
         dest: 'build/css/style.css'
 
+    # Webserver.
+    connect:
+      server:
+        options:
+          port: 4141
+          hostname: '*'
+          base: 'build'
+          livereload: true
+
+    # Live processing.
     watch:
       coffee:
         files: ['src/js/script.coffee']
@@ -39,6 +49,13 @@ module.exports = (grunt) ->
       autoprefixer:
         files: ['tmp/css/style.css']
         tasks: ['autoprefixer:single_file']
+      reload:
+        files: ['build/*.html','build/js/script.js']
+        options: {livereload: true}
+      livereload:
+        files: ['build/css/style.css']
+        options: {livereload: true}
+
 
     # Push site to matthewmcvickar.com.
     'ftp-deploy':
@@ -55,5 +72,5 @@ module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask 'setup', ['uglify']
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', ['connect', 'watch']
   grunt.registerTask 'deploy', ['ftp-deploy']
