@@ -510,6 +510,7 @@ li {
       -ms-flex-pack: center;
       justify-content: center; }
       section.for-hire .showoff img {
+        cursor: se-resize;
         width: 100px;
         height: 100px;
         opacity: 0.2;

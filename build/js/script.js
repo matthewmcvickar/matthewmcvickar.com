@@ -1,13 +1,15 @@
 (function() {
   $(function() {
-    var animationImage;
+    var animateImage, animationImage;
     animationImage = $('.showoff img');
     animationImage.addClass('animated');
-    return $(document).on({
-      'show.visibility': function() {
-        animationImage.removeClass('animated').width();
-        return animationImage.addClass('animated');
-      }
+    animateImage = function() {
+      animationImage.removeClass('animated').width();
+      return animationImage.addClass('animated');
+    };
+    $(document).on('show.visibility', animateImage());
+    return animationImage.click(function() {
+      return animateImage();
     });
   });
 
