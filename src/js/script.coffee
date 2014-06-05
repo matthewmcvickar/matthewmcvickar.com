@@ -2,9 +2,6 @@ $ ->
 
   animationImage = $('.showoff img')
 
-  # Animate on first pageload.
-  animationImage.addClass('animated')
-
   animateImage = ->
     # The width() function triggers a re-flow, causing the element
     # to re-animate when the class is re-assigned.
@@ -15,4 +12,7 @@ $ ->
   $(document).on 'show.visibility', animateImage
 
   # If they click, reanimate.
-  animationImage.click -> animateImage()
+  animationImage.click animateImage
+  
+  # Animate on first pageload.
+  animateImage()
