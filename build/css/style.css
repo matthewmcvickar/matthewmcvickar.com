@@ -513,9 +513,9 @@ li {
         width: 100px;
         height: 100px;
         opacity: 0.2;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%; }
+        -webkit-transform-origin: 50% 100%;
+        -ms-transform-origin: 50% 100%;
+        transform-origin: 50% 100%; }
       section.for-hire .showoff img.animated {
         -webkit-animation: shake 5s ease;
         animation: shake 5s ease; }
