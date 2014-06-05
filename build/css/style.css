@@ -402,13 +402,11 @@ h2 {
   font-weight: 300; }
 
 h1 {
-  color: #999999;
   font-size: 28px;
+  font-weight: bold;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px; }
-  h1 a {
-    color: #333333; }
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 h2 {
   color: #cccccc;
@@ -417,7 +415,7 @@ h2 {
   text-transform: uppercase; }
 
 p {
-  line-height: 1.4;
+  line-height: 1.6;
   margin: 0;
   padding: 0 0 10px; }
   p:last-child {
@@ -443,8 +441,8 @@ li {
   max-width: 100%; }
 
 .for-hire {
-  background: -webkit-linear-gradient(90deg, #0a80cc 0%, #0da1ff 100%);
-  background: linear-gradient(0deg, #0a80cc 0%, #0da1ff 100%);
+  background: -webkit-linear-gradient(270deg, #0da1ff 0%, #0a80cc 100%);
+  background: linear-gradient(180deg, #0da1ff 0%, #0a80cc 100%);
   color: white;
   margin-top: 40px;
   margin-bottom: 40px; }
@@ -461,6 +459,10 @@ li {
     font-weight: bold; }
 
 @media (min-width: 700px) {
+  h1 {
+    text-align: left;
+    margin-left: 194px; }
+
   section:not(.for-hire) {
     display: -webkit-box;
     display: -webkit-flex;
@@ -507,16 +509,16 @@ li {
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center; }
-      section.for-hire .showoff span {
-        font-family: "American Typewriter", sans-serif;
-        font-size: 132px;
-        font-weight: bold;
+      section.for-hire .showoff img {
+        width: 100px;
+        height: 100px;
         opacity: 0.2;
-        -webkit-animation: shake 5s ease-in-out infinite;
-        animation: shake 5s ease-in-out infinite;
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         transform-origin: 50% 50%; }
+      section.for-hire .showoff img.animated {
+        -webkit-animation: shake 5s ease;
+        animation: shake 5s ease; }
     section.for-hire .showoff + div {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
@@ -534,6 +536,7 @@ li {
 @media (min-width: 500px) {
   .intro img {
     float: right;
+    margin-top: 6.66667px;
     margin-left: 20px;
     margin-bottom: 0;
     width: 150px; } }

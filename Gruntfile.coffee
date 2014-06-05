@@ -3,6 +3,21 @@ module.exports = (grunt) ->
   grunt.initConfig {
     pkg: grunt.file.readJSON('package.json')
 
+    # Concatenate and uglify JS libraries. Only run whenever these librarise are updated or added to.
+    uglify:
+      build:
+        files:
+          'build/js/lib.js' : [
+            'bower_components/jquery/dist/jquery.js'
+            'bower_components/jquery-visibility/jquery-visibility.js'
+          ]
+
+    # CoffeeScript.
+    coffee:
+      build:
+        files:
+          'build/js/script.js' : 'src/js/script.coffee'
+
     # SASS and Autoprefixer for CSS, and watcher.
     sass:
       build:
@@ -15,6 +30,9 @@ module.exports = (grunt) ->
         dest: 'build/css/style.css'
 
     watch:
+      coffee:
+        files: ['src/js/script.coffee']
+        tasks: ['coffee:build']
       sass:
         files: ['src/css/*.sass']
         tasks: ['sass:build']
@@ -36,5 +54,6 @@ module.exports = (grunt) ->
 
   require('load-grunt-tasks')(grunt)
 
+  grunt.registerTask 'setup', ['uglify']
   grunt.registerTask 'default', ['watch']
   grunt.registerTask 'deploy', ['ftp-deploy']

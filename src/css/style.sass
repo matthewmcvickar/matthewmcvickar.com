@@ -14,6 +14,8 @@ $light: #ccc
 
 $line: 20px
 
+$indent: 175px
+
 
 // Mixins
 
@@ -85,14 +87,11 @@ h2
   font-weight: $weight
 
 h1
-  color: $medium
   font-size: 28px
+  font-weight: bold
   text-align: center
-  margin-top: $line
-  margin-bottom: $line
-
-  a
-    color: #333
+  margin-top: $line*1.5
+  margin-bottom: $line*1.5
 
 h2
   color: $light
@@ -101,7 +100,7 @@ h2
   text-transform: uppercase
 
 p
-  line-height: 1.4
+  line-height: 1.6
   margin: 0
   padding: 0 0 $line/2
 
@@ -130,7 +129,7 @@ li
     max-width: 100%
 
 .for-hire
-  background: linear-gradient(0deg, $blue*.8 0%, $blue 100%)
+  background: linear-gradient(180deg, $blue 0%, $blue*.8 100%)
   color: white
   margin-top: $line*2
   margin-bottom: $line*2
@@ -151,13 +150,17 @@ li
 
 
 @media (min-width: 700px)
+  h1
+    text-align: left
+    margin-left: $indent + $line - 1px
+
   section:not(.for-hire)
     display: flex
     margin-top: $line
 
     h2
       flex: 1
-      min-width: 175px
+      min-width: $indent
       margin-top: $link-padding*0.6
 
       font-size: 18px
@@ -177,19 +180,20 @@ li
     .showoff
       line-height: 1
       margin-right: $line
-      width: 175px-$line
+      width: $indent - $line
 
       display: flex
       align-items: center
       justify-content: center
 
-      span
-        font-family: "American Typewriter", sans-serif
-        font-size: 132px
-        font-weight: bold
+      img
+        width: 100px
+        height: 100px
         opacity: .2
-        animation: shake 5s ease-in-out infinite
         transform-origin: 50% 50%
+
+      img.animated
+        animation: shake 5s ease
 
     .showoff + div
       flex: 1
@@ -210,6 +214,7 @@ li
   .intro
     img
       float: right
+      margin-top: $line/3
       margin-left: $line
       margin-bottom: 0
       width: 150px
