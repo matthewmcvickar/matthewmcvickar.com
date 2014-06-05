@@ -13,6 +13,6 @@ $ ->
 
   # If they click, reanimate.
   animationImage.click animateImage
-  
+
   # Animate on first pageload.
   animateImage()
