@@ -12,7 +12,7 @@ $ ->
     animationImage.addClass('animated')
 
   # In case the site was opened in a tab, reanimate so they notice!
-  $(document).on 'show.visibility', animateImage()
+  $(document).on 'show.visibility', animateImage
 
   # If they click, reanimate.
   animationImage.click -> animateImage()

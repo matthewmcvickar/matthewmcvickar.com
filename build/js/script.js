@@ -7,7 +7,7 @@
       animationImage.removeClass('animated').width();
       return animationImage.addClass('animated');
     };
-    $(document).on('show.visibility', animateImage());
+    $(document).on('show.visibility', animateImage);
     return animationImage.click(function() {
       return animateImage();
     });
