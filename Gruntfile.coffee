@@ -23,6 +23,8 @@ module.exports = (grunt) ->
       build:
         files:
           'tmp/css/style.css' : 'src/css/style.sass'
+        options:
+          sourcemap: true
 
     autoprefixer:
       single_file:
@@ -33,7 +35,7 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
-          port: 4141
+          port: 5000
           hostname: '*'
           base: 'build'
           livereload: true
