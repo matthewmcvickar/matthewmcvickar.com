@@ -68,7 +68,7 @@ module.exports = (grunt) ->
           authKey: 'primary'
         src: 'build',
         dest: 'public_html',
-        exclusions: ['build/**/.DS_Store']
+        exclusions: ['build/**/.DS_Store', '*.css.map']
   }
 
   require('load-grunt-tasks')(grunt)
