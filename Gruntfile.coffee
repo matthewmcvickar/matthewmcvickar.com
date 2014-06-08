@@ -17,6 +17,9 @@ module.exports = (grunt) ->
       build:
         files:
           'build/js/script.js' : 'src/js/script.coffee'
+        options:
+          sourceMap: true
+          sourceMapDir: 'build/js/'
 
     # SASS and Autoprefixer for CSS.
     sass:
