@@ -42,4 +42,4 @@ My personal website.
 
   Make changes to files in the `src/` directory and they will be processed into the /build directory.
 
-7. Go to [http://localhost:4141](http://localhost:4141/) to see the running site.
+7. Go to [http://localhost:5000](http://localhost:5000) to see the running site.
