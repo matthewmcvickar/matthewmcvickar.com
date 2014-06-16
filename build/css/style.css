@@ -364,11 +364,11 @@ th {
   box-sizing: border-box; }
 
 ::-moz-selection {
-  background: #0da1ff;
+  background: #0099ff;
   color: white; }
 
 ::selection {
-  background: #0da1ff;
+  background: #0099ff;
   color: white; }
 
 body {
@@ -380,7 +380,7 @@ body {
   margin: 0; }
 
 a {
-  color: #0da1ff;
+  color: #0099ff;
   text-decoration: none;
   -webkit-transition: color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out; }
@@ -441,8 +441,8 @@ li {
   max-width: 100%; }
 
 .for-hire {
-  background: -webkit-linear-gradient(270deg, #0da1ff 0%, #0a80cc 100%);
-  background: linear-gradient(180deg, #0da1ff 0%, #0a80cc 100%);
+  background: -webkit-linear-gradient(270deg, #0099ff 0%, #007acc 100%);
+  background: linear-gradient(180deg, #0099ff 0%, #007acc 100%);
   color: white;
   margin-top: 40px;
   margin-bottom: 40px; }
