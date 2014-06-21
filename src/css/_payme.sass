@@ -1,7 +1,14 @@
 .payme
   h2
-    color: $medium
+    color: $blue
+    font-weight: $bold
+
+    br
+      display: none
 
   @media (min-width: 700px)
     section:not(.for-hire)
       margin-top: $line*1.25
+
+    h2 br
+      display: inline-block

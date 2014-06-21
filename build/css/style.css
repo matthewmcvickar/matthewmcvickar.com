@@ -633,9 +633,14 @@ li {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); } }
 .payme h2 {
-  color: #999999; }
+  color: #0099ff;
+  font-weight: 600; }
+  .payme h2 br {
+    display: none; }
 @media (min-width: 700px) {
   .payme section:not(.for-hire) {
-    margin-top: 25px; } }
+    margin-top: 25px; }
+  .payme h2 br {
+    display: inline-block; } }
 
 /*# sourceMappingURL=style.css.map */
