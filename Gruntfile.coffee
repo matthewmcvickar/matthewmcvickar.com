@@ -12,6 +12,19 @@ module.exports = (grunt) ->
             'bower_components/jquery-visibility/jquery-visibility.js'
           ]
 
+    # Build HTML pages from templates.
+    includes:
+      files:
+        src: [
+          'src/**/*.html'
+          '!src/_*.html'
+          ]
+        dest: 'build'
+        flatten: true
+        options:
+          filenamePrefix: '_'
+          filenameSuffix: '.html'
+
     # CoffeeScript.
     coffee:
       build:
@@ -45,6 +58,9 @@ module.exports = (grunt) ->
 
     # Live processing.
     watch:
+      html:
+        files: ['src/**/*.html']
+        tasks: ['includes']
       coffee:
         files: ['src/js/script.coffee']
         tasks: ['coffee:build']
@@ -71,7 +87,7 @@ module.exports = (grunt) ->
           authKey: 'primary'
         src: 'build',
         dest: 'public_html',
-        exclusions: ['build/**/.DS_Store', '*.css.map']
+        exclusions: ['build/**/.DS_Store', '*.map']
   }
 
   require('load-grunt-tasks')(grunt)

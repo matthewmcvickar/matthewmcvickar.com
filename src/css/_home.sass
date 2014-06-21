@@ -1,0 +1,128 @@
+.home
+
+  .intro
+    @include clearfix
+
+    img
+      margin-bottom: $line
+      max-width: 100%
+
+  .for-hire
+    background: linear-gradient(180deg, $blue 0%, $blue*.8 100%)
+    color: white
+    margin-top: $line*2
+    margin-bottom: $line*2
+
+    h2
+      color: white
+      font-size: 28px
+      font-weight: bold
+      margin-top: 0
+
+    p
+      font-size: 18px
+
+    a
+      border-bottom: 2px solid white
+      color: white
+      font-weight: bold
+
+
+  @media (min-width: 700px)
+    section:not(.for-hire)
+      h2
+        margin-top: $link-padding*0.6
+
+    section.for-hire
+      border-radius: 4px
+      padding: $line
+      margin-left: 0
+      margin-right: 0
+
+      display: flex
+
+      .showoff
+        line-height: 1
+        margin-right: $line
+        width: $indent - $line
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        img
+          cursor: se-resize
+          width: 100px
+          height: 100px
+          opacity: .2
+          transform-origin: 50% 100%
+
+        img.animated
+          animation: shake 5s ease
+
+      .showoff + div
+        flex: 1
+
+      h2
+        margin-top: -3px
+
+    section.links
+      border-bottom: 1px solid $light*1.1
+      margin-bottom: $line
+      padding-bottom: $line
+
+      &:last-child
+        border-bottom: 0
+
+
+  @media (min-width: 500px)
+    .intro
+      img
+        float: right
+        margin-top: $line/3
+        margin-left: $line
+        margin-bottom: 0
+        width: 150px
+
+
+  @media (max-width: 700px)
+    .intro
+      h2
+        display: none
+
+    .for-hire
+      .showoff
+        display: none
+
+    .for-hire
+      @include mobile-background-bleed
+
+
+// Shaking exclamation animation.
+
+$deg: 6deg
+
+@keyframes shake
+  0%:
+    transform: rotate(0deg)
+
+  2%:
+    transform: rotate(-$deg)
+
+  4%:
+    transform: rotate($deg)
+
+  6%:
+    transform: rotate(-$deg*1.2)
+
+  8%:
+    transform: rotate($deg*1.4)
+
+  10%:
+    transform: rotate(-$deg)
+
+  12%:
+    transform: rotate(0deg)
+
+  100%:
+    transform: rotate(0deg)

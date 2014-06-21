@@ -409,7 +409,7 @@ h1 {
   margin-bottom: 30px; }
 
 h2 {
-  color: #cccccc;
+  color: #bbbbbb;
   font-size: 22px;
   margin: 20px 0 5px;
   text-transform: uppercase; }
@@ -422,41 +422,23 @@ p {
     padding-bottom: 0; }
 
 ul {
+  list-style: square;
+  margin: 0;
+  padding: 0 0 0 20px; }
+
+li {
+  line-height: 1.6;
+  padding: 0; }
+
+.links ul {
   list-style: none;
   margin: 0;
   padding: 0; }
-
-li {
+.links li {
   padding: 6.66667px 0;
   text-indent: -6.66667px; }
-  li a {
+  .links li a {
     padding: 6.66667px; }
-
-.intro:after {
-  content: "";
-  display: table;
-  clear: both; }
-.intro img {
-  margin-bottom: 20px;
-  max-width: 100%; }
-
-.for-hire {
-  background: -webkit-linear-gradient(270deg, #0099ff 0%, #007acc 100%);
-  background: linear-gradient(180deg, #0099ff 0%, #007acc 100%);
-  color: white;
-  margin-top: 40px;
-  margin-bottom: 40px; }
-  .for-hire h2 {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 0; }
-  .for-hire p {
-    font-size: 18px; }
-  .for-hire a {
-    border-bottom: 2px solid white;
-    color: white;
-    font-weight: bold; }
 
 @media (min-width: 700px) {
   h1 {
@@ -475,16 +457,42 @@ li {
       -ms-flex: 1;
       flex: 1;
       min-width: 175px;
-      margin-top: 4px;
-      font-size: 18px; }
+      font-size: 18px;
+      margin: 0; }
     section:not(.for-hire) h2 + div,
     section:not(.for-hire) h2 + ul {
       -webkit-box-flex: 3;
       -webkit-flex: 3;
       -ms-flex: 3;
-      flex: 3; }
-
-  section.for-hire {
+      flex: 3; } }
+.home .intro:after {
+  content: "";
+  display: table;
+  clear: both; }
+.home .intro img {
+  margin-bottom: 20px;
+  max-width: 100%; }
+.home .for-hire {
+  background: -webkit-linear-gradient(270deg, #0099ff 0%, #007acc 100%);
+  background: linear-gradient(180deg, #0099ff 0%, #007acc 100%);
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  .home .for-hire h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0; }
+  .home .for-hire p {
+    font-size: 18px; }
+  .home .for-hire a {
+    border-bottom: 2px solid white;
+    color: white;
+    font-weight: bold; }
+@media (min-width: 700px) {
+  .home section:not(.for-hire) h2 {
+    margin-top: 4px; }
+  .home section.for-hire {
     border-radius: 4px;
     padding: 20px;
     margin-left: 0;
@@ -493,7 +501,7 @@ li {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-    section.for-hire .showoff {
+    .home section.for-hire .showoff {
       line-height: 1;
       margin-right: 20px;
       width: 155px;
@@ -509,7 +517,7 @@ li {
       -webkit-justify-content: center;
       -ms-flex-pack: center;
       justify-content: center; }
-      section.for-hire .showoff img {
+      .home section.for-hire .showoff img {
         cursor: se-resize;
         width: 100px;
         height: 100px;
@@ -517,50 +525,48 @@ li {
         -webkit-transform-origin: 50% 100%;
         -ms-transform-origin: 50% 100%;
         transform-origin: 50% 100%; }
-      section.for-hire .showoff img.animated {
+      .home section.for-hire .showoff img.animated {
         -webkit-animation: shake 5s ease;
         animation: shake 5s ease; }
-    section.for-hire .showoff + div {
+    .home section.for-hire .showoff + div {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
       flex: 1; }
-    section.for-hire h2 {
+    .home section.for-hire h2 {
       margin-top: -3px; }
-
-  section.links {
-    border-bottom: 1px solid #e0e0e0;
+  .home section.links {
+    border-bottom: 1px solid #cdcdcd;
     margin-bottom: 20px;
     padding-bottom: 20px; }
-    section.links:last-child {
+    .home section.links:last-child {
       border-bottom: 0; } }
 @media (min-width: 500px) {
-  .intro img {
+  .home .intro img {
     float: right;
     margin-top: 6.66667px;
     margin-left: 20px;
     margin-bottom: 0;
     width: 150px; } }
 @media (max-width: 700px) {
-  .intro h2 {
+  .home .intro h2 {
     display: none; }
-
-  .for-hire .showoff {
+  .home .for-hire .showoff {
     display: none; }
-
-  .for-hire {
+  .home .for-hire {
     margin: 30px 0;
     padding-top: 20px;
     padding-bottom: 20px; }
-    .for-hire *:first-child {
+    .home .for-hire *:first-child {
       margin-top: 0;
       padding-top: 0; }
-    .for-hire *:last-child {
+    .home .for-hire *:last-child {
       margin-bottom: 0;
       padding-bottom: 0; }
-    .for-hire > * {
+    .home .for-hire > * {
       margin-left: 20px;
       margin-right: 20px; } }
+
 @-webkit-keyframes shake {
   0% {
     -webkit-transform: rotate(0deg);
@@ -593,6 +599,7 @@ li {
   100% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); } }
+
 @keyframes shake {
   0% {
     -webkit-transform: rotate(0deg);
@@ -625,5 +632,10 @@ li {
   100% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); } }
+.payme h2 {
+  color: #999999; }
+@media (min-width: 700px) {
+  .payme section:not(.for-hire) {
+    margin-top: 25px; } }
 
 /*# sourceMappingURL=style.css.map */
