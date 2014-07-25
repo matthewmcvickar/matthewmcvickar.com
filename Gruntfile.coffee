@@ -3,49 +3,32 @@ module.exports = (grunt) ->
   grunt.initConfig {
     pkg: grunt.file.readJSON('package.json')
 
-    # Concatenate and uglify JS libraries. Only run whenever these librarise are updated or added to.
-    uglify:
+
+    # CSS auto-prefixing.
+    autoprefixer:
       build:
-        files:
-          'build/js/lib.js' : [
-            'bower_components/jquery/dist/jquery.js'
-            'bower_components/jquery-visibility/jquery-visibility.js'
-          ]
+        src: 'tmp/style.css'
+        dest: 'build/css/style.css'
 
-    # Build HTML pages from templates.
-    includes:
-      files:
-        src: [
-          'src/**/*.html'
-          '!src/_*.html'
-          ]
-        dest: 'build'
-        flatten: true
-        options:
-          filenamePrefix: '_'
-          filenameSuffix: '.html'
 
-    # CoffeeScript.
+    # CoffeeScript compilation.
     coffee:
       build:
-        files:
-          'build/js/script.js' : 'src/js/script.coffee'
         options:
           sourceMap: true
           sourceMapDir: 'build/js/'
-
-    # SASS and Autoprefixer for CSS.
-    sass:
-      build:
         files:
-          'tmp/css/style.css' : 'src/css/style.sass'
-        options:
-          sourcemap: true
+          'tmp/script.js' : 'src/js/script.coffee'
 
-    autoprefixer:
-      single_file:
-        src: 'tmp/css/style.css'
-        dest: 'build/css/style.css'
+
+    # Copy SVG and favicon to build/img.
+    copy:
+      build:
+        expand: true
+        cwd: 'src/img'
+        src: '*.{ico,svg}'
+        dest: 'build/img'
+
 
     # Webserver.
     connect:
@@ -56,26 +39,98 @@ module.exports = (grunt) ->
           base: 'build'
           livereload: true
 
-    # Live processing.
+
+    # Optimize images
+    imagemin:
+      files:
+        expand: true
+        cwd: 'src/img'
+        src: ['**/*.{png,jpg,gif}']
+        dest: 'build/img/'
+
+
+    # Build HTML pages from tmplates.
+    includes:
+      files:
+        src: ['src/*.html', '!src/_*.html']
+        dest: 'build'
+        flatten: true
+
+
+    # SASS and Autoprefixer for CSS, and watcher.
+    sass:
+      build:
+        options:
+          style: 'compressed'
+          sourcemap: true
+        files:
+          'tmp/style.css' : 'src/css/style.sass'
+
+
+    # Concatenate and uglify JS.
+    uglify:
+
+      # Only run whenever these libraries are updated or added to.
+      libraries:
+        files:
+          'src/js/lib.js' : [
+            'bower_components/jquery/dist/jquery.js'
+            'bower_components/jquery-visibility/jquery-visibility.js'
+          ]
+
+      # Run after changes to CoffeeScript file are JS-ified.
+      build:
+        files:
+          'build/js/lib+script.js' : [
+            'src/js/lib.js'
+            'tmp/script.js'
+          ]
+
+
+   # Live processing.
     watch:
-      html:
-        files: ['src/**/*.html']
-        tasks: ['includes']
+      autoprefixer:
+        files: ['tmp/style.css']
+        tasks: ['autoprefixer:style']
+
       coffee:
         files: ['src/js/script.coffee']
         tasks: ['coffee:build']
-      sass:
-        files: ['src/css/*.sass']
-        tasks: ['sass:build']
-      autoprefixer:
-        files: ['tmp/css/style.css']
-        tasks: ['autoprefixer:single_file']
-      reload:
-        files: ['build/*.html','build/js/script.js']
-        options: {livereload: true}
+
+      copy:
+        files: ['src/img/*.{ico,svg}']
+        tasks: ['copy']
+
+      html:
+        files: ['src/*.html']
+        tasks: ['includes']
+
+      imagemin:
+        files: ['src/img/*.{gif,jpg,png}']
+        tasks: ['imagemin']
+
       livereload:
         files: ['build/css/style.css']
-        options: {livereload: true}
+        options: { livereload: true }
+
+      reload:
+        files: [
+          'build/*.html'
+          'build/img/*'
+          'build/js/*.js'
+        ]
+        options: { livereload: true }
+
+      sass:
+        files: [
+          'src/css/*.sass'
+          'src/css/*.scss'
+        ]
+        tasks: ['sass:build']
+
+      uglify:
+        files: ['tmp/script.js']
+        tasks: ['uglify:build']
 
 
     # Push site to matthewmcvickar.com.
@@ -92,6 +147,6 @@ module.exports = (grunt) ->
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask 'setup', ['uglify']
-  grunt.registerTask 'default', ['connect', 'watch']
-  grunt.registerTask 'deploy', ['ftp-deploy']
+  grunt.registerTask 'setup',   ['copy', 'includes', 'sass', 'autoprefixer', 'imagemin', 'uglify']
+  grunt.registerTask 'default', ['setup', 'connect', 'watch']
+  grunt.registerTask 'deploy',  ['ftp-deploy']

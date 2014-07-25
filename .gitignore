@@ -6,6 +6,7 @@ node_modules
 tmp
 .ftppass
 *.map
+build
 
 # OS-generated files
 .DS_Store
