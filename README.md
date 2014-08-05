@@ -19,7 +19,7 @@ My personal website.
 1. Install NodeJS if you don't have it already:
 
     ```sh
-    brew install node
+    $ brew install node
     ```
 
 1. Set correct permissions for NodeJS to not require `sudo` for commands.
