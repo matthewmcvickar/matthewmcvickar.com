@@ -91,7 +91,7 @@ module.exports = (grunt) ->
     watch:
       autoprefixer:
         files: ['tmp/style.css']
-        tasks: ['autoprefixer:style']
+        tasks: ['autoprefixer']
 
       coffee:
         files: ['src/js/script.coffee']
