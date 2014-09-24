@@ -62,7 +62,6 @@ module.exports = (grunt) ->
       build:
         options:
           style: 'compressed'
-          sourcemap: true
         files:
           'tmp/style.css' : 'src/css/style.sass'
 
