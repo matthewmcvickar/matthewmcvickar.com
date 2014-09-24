@@ -1,6 +1,6 @@
 $ ->
 
-  animationImage = $('.showoff img')
+  animationImage = $('.animation img')
 
   animateImage = ->
     # The width() function triggers a re-flow, causing the element

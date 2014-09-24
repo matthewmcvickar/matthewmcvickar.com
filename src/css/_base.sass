@@ -6,23 +6,6 @@
     display: table
     clear: both
 
-@mixin mobile-background-bleed
-  margin: $line*1.5 0
-  padding-top: $line
-  padding-bottom: $line
-
-  *:first-child
-    margin-top: 0
-    padding-top: 0
-
-  *:last-child
-    margin-bottom: 0
-    padding-bottom: 0
-
-  > *
-    margin-left: $line
-    margin-right: $line
-
 
 // Basics
 
@@ -41,9 +24,9 @@ body
   color: $dark
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
   font-size: 16px
-  font-weight: $weight
+  font-weight: normal
   line-height: 1.3
-  margin: 0
+  margin: 0 $line
 
 a
   color: $blue
@@ -59,26 +42,26 @@ a
   max-width: 100%
 
 h1,
-section
-  margin-left: $line
-  margin-right: $line
-
-h1,
 h2
-  font-weight: $weight
+  font-weight: normal
 
 h1
   font-size: 28px
   font-weight: bold
   text-align: center
   margin-top: $line*1.5
-  margin-bottom: $line*1.5
+  margin-bottom: 0
 
 h2
   color: $light
   font-size: 22px
-  margin: $line 0 $line/4
+  margin: $line 0 $line/2
   text-transform: uppercase
+
+h3
+  color: $dark
+  font-size: 20px
+  margin: $line/2 0
 
 p
   line-height: 1.6
@@ -97,29 +80,19 @@ li
   line-height: 1.6
   padding: 0
 
-$link-padding: $line/3
+article
+  margin-top: $line*1.5
 
-.links
-  ul
-    list-style: none
-    margin: 0
-    padding: 0
+article > section
+  margin-bottom: $line*2
 
-  li
-    padding: $link-padding 0
-    text-indent: -$link-padding
-
-    a
-      padding: $link-padding
-
-@media (min-width: 700px)
++breakpoint(full)
   h1
     text-align: left
-    margin-left: $indent + $line - 1px
+    margin-left: $indent - 1px
 
-  section:not(.for-hire)
+  article > section
     display: flex
-    margin-top: $line
 
     h2
       flex: 1

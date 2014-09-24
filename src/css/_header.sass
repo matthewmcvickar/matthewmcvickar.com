@@ -1,0 +1,36 @@
+.container > header
+  nav
+    font-weight: bold
+    text-align: center
+
+    ul,
+    li
+      display: inline
+      list-style: none
+      margin: 0
+      padding: 0
+
+    li:after
+      content: " ■ "
+      font-size: 6px
+      vertical-align: 3px
+
+    li:last-child:after
+      display: none
+
+    a
+      display: inline-block
+      padding: 8px
+
+
+    +breakpoint(full)
+      margin-left: $indent
+      text-align: left
+
+      &:before
+        content: "↳"
+        margin-right: -4px
+        vertical-align: -1px
+
+      a
+        padding: 3px 8px

@@ -1,20 +1,25 @@
-// Variables
+// Breakpoints
+$breakpoint-medium: 500px
+$breakpoint-full:   740px
 
-$weight: 300
-$bold:   600
+// Colors.
+$blue:    #09F
+$orange:  #CC4B14
+$dark:    #333
+$medium:  #999
+$light:   #BBB
+$lighter: #F6F6F6
 
-$blue:   #09F
-$dark:   #333
-$medium: #999
-$light:  #bbb
-
-$line:   20px
-
-$indent: 175px
+// Dimensions.
+$line:    20px
+$curve:   4px
+$indent:  175px
 
 // Includes
-
 @import "normalize"
+@import "mixins"
 @import "base"
+@import "header"
 @import "home"
-@import "payme"
+@import "work"
+@import "payment"

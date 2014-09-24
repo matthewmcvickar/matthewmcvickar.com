@@ -1,12 +1,12 @@
 .payment
   h2
     color: $blue
-    font-weight: $bold
+    font-weight: bold
 
     br
       display: none
 
-  @media (min-width: 700px)
+  +breakpoint(full)
     section:not(.for-hire)
       margin-top: $line*1.75
 

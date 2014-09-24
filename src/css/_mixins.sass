@@ -1,0 +1,31 @@
+// Media queries.
+
+@mixin breakpoint($min: null, $max: null)
+
+  // Fetch the right variables.
+  @if $min == null or $min == "" or $min == "none" or $min == "0"
+    $min: "none"
+  @else if $min == "medium"
+    $min: $breakpoint-medium
+  @else if $min == "full"
+    $min: $breakpoint-full
+
+  @if $max == null or $max == "" or $max == "none" or $max == "0"
+    $max: "none"
+  @else if $max == "medium"
+    $max: $breakpoint-full + 1
+  @else if $max == "full"
+    $max: $breakpoint-full
+
+  // Build the right query.
+  @if $min == "none"
+    @media (max-width: $max)
+      @content
+
+  @else if $max == "none"
+    @media (min-width: $min)
+      @content
+
+  @else
+    @media (min-width: $min) and (max-width: $max)
+      @content

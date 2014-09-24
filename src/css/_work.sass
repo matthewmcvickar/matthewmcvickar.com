@@ -1,0 +1,29 @@
+.work
+  a
+    font-weight: bold
+
+  .portfolio
+    section
+      margin-bottom: $line*2
+
+    h3
+      a
+        color: inherit
+
+      // Anchor indicator.
+      a:hover:after
+        content: " #"
+        color: $light
+
+    .aspects
+      color: $medium
+      font-size: 80%
+
+
+  #skills
+    & div > ul > li
+      margin-bottom: $line/2
+
+    small
+      color: $light
+      display: block

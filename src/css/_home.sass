@@ -1,17 +1,24 @@
 .home
 
   .intro
-    @include clearfix
-
     img
       margin-bottom: $line
       max-width: 100%
 
+    +breakpoint(0, medium)
+      h2
+        display: none
+
   .for-hire
+    margin-left: -$line
+    margin-right: -$line
+    padding: $line
+
     background: linear-gradient(180deg, $blue 0%, $blue*.8 100%)
     color: white
-    margin-top: $line*2
-    margin-bottom: $line*2
+
+    .animation
+      display: none
 
     h2
       color: white
@@ -27,21 +34,36 @@
       color: white
       font-weight: bold
 
+  .links
+    $link-padding: $line/3
 
-  @media (min-width: 700px)
-    section:not(.for-hire)
-      h2
-        margin-top: 6px
+    ul
+      list-style: none
+      margin: -$link-padding 0 0 0
+      padding: 0
 
-    section.for-hire
-      border-radius: 4px
+    li
+      color: $light
+      padding: $link-padding 0
+      text-indent: -$link-padding
+
+      a
+        padding: $link-padding 0 $link-padding $link-padding
+
+      code
+        background: $lighter
+        border-radius: $curve
+        padding: 1px 2px
+
+
+  +breakpoint(full)
+    .for-hire
+      border-radius: $curve
       padding: $line
-      margin-left: 0
-      margin-right: 0
 
       display: flex
 
-      .showoff
+      .animation
         line-height: 1
         margin-right: $line
         width: $indent - $line
@@ -60,42 +82,21 @@
         img.animated
           animation: shake 5s ease
 
-      .showoff + div
-        flex: 1
+        & + div
+          flex: 1
 
       h2
         margin-top: -3px
 
-    section.links
-      border-bottom: 1px solid $light*1.1
-      margin-bottom: $line
-      padding-bottom: $line
-
-      &:last-child
-        border-bottom: 0
-
-
-  @media (min-width: 500px)
+  +breakpoint(medium)
     .intro
       img
         float: right
         margin-top: $line/3
         margin-left: $line
         margin-bottom: 0
-        width: 150px
+        width: 160px
 
-
-  @media (max-width: 700px)
-    .intro
-      h2
-        display: none
-
-    .for-hire
-      .showoff
-        display: none
-
-    .for-hire
-      @include mobile-background-bleed
 
 
 // Digging animation.
@@ -105,24 +106,17 @@ $deg: 6deg
 @keyframes shake
   0%:
     transform: rotate(0deg)
-
   2%:
     transform: rotate(-$deg)
-
   4%:
     transform: rotate($deg)
-
   6%:
     transform: rotate(-$deg*1.2)
-
   8%:
     transform: rotate($deg*1.4)
-
   10%:
     transform: rotate(-$deg)
-
   12%:
     transform: rotate(0deg)
-
   100%:
     transform: rotate(0deg)
