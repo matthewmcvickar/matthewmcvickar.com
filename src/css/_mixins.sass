@@ -9,6 +9,8 @@
     $min: $breakpoint-medium
   @else if $min == "full"
     $min: $breakpoint-full
+  @else
+    $min: $min
 
   @if $max == null or $max == "" or $max == "none" or $max == "0"
     $max: "none"
@@ -16,6 +18,8 @@
     $max: $breakpoint-full + 1
   @else if $max == "full"
     $max: $breakpoint-full
+  @else
+    $max: $max
 
   // Build the right query.
   @if $min == "none"
