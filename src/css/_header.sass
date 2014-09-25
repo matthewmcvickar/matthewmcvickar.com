@@ -1,6 +1,7 @@
 .container > header
   nav
     font-weight: bold
+    margin-top: $line/3
     text-align: center
 
     ul,
@@ -10,20 +11,13 @@
       margin: 0
       padding: 0
 
-    li:after
-      content: " ■ "
-      font-size: 6px
-      vertical-align: 3px
-
-    li:last-child:after
-      display: none
-
     a
       display: inline-block
+      line-height: 1
       padding: 8px
 
-
     +breakpoint(full)
+      margin-top: 0
       margin-left: $indent
       text-align: left
 
@@ -34,3 +28,11 @@
 
       a
         padding: 3px 8px
+
+      li:after
+        content: " ■ "
+        font-size: 6px
+        vertical-align: 3px
+
+      li:last-child:after
+        display: none
