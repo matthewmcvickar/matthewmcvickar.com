@@ -1,7 +1,13 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
 RewriteRule ^payme/?$ /payment.html [R=301,L]
 RewriteRule ^payment/?$ /payment.html [R=301,L]
 RewriteRule ^payme.html$ /payment.html [R=301,L]
+
+RewriteRule ^work/?$ /work.html [R=301,L]
+RewriteRule ^portfolio/?$ /work.html [R=301,L]
+
+RewriteRule ^about/?$ /about.html [R=301,L]
 </IfModule>
