@@ -23,7 +23,10 @@ module.exports = (grunt) ->
 
     # Copy SVG and favicon to build/img.
     copy:
-      build:
+      htaccess:
+        files:
+          'build/.htaccess' : 'src/.htaccess'
+      images:
         expand: true
         cwd: 'src/img'
         src: '*.{ico,svg}'
