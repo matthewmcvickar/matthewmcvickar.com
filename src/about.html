@@ -28,9 +28,9 @@ include "_header.html"
 
 <script>
 // Calculate one's age.
-function calculateAge(dateString) {
+function calculateAge(date) {
   var today      = new Date(),
-      birthDate  = new Date(dateString),
+      birthDate  = new Date(date),
       monthsDiff = today.getMonth() - birthDate.getMonth(),
       age        = today.getFullYear() - birthDate.getFullYear();
 
