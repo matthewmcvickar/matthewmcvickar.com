@@ -2,12 +2,11 @@
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^payme/?$ /payment.html [R=301,L]
-RewriteRule ^payment/?$ /payment.html [R=301,L]
-RewriteRule ^payme.html$ /payment.html [R=301,L]
+# URLs without extensions.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-RewriteRule ^work/?$ /work.html [R=301,L]
-RewriteRule ^portfolio/?$ /work.html [R=301,L]
-
-RewriteRule ^about/?$ /about.html [R=301,L]
+# Redirect old URLs.
+RewriteRule ^payme/?$ /payment [R=301,L]
+RewriteRule ^work/?$ /portfolio [R=301,L]
 </IfModule>
