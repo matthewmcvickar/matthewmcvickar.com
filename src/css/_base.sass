@@ -45,6 +45,13 @@ h1,
 h2
   font-weight: normal
 
+h1,
+h2,
+h3,
+h4
+  a
+    color: inherit
+
 h1
   font-size: 28px
   font-weight: bold
@@ -61,7 +68,7 @@ h2
 h3
   color: $dark
   font-size: 20px
-  margin: $line/2 0
+  margin: 0 0 $line/2 0
 
 h4
   color: $medium
@@ -91,6 +98,9 @@ article
 
 article > section
   margin-bottom: $line*2
+
+section
+  margin-bottom: $line*3
 
 +breakpoint(full)
   h1

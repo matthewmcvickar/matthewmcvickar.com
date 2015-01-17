@@ -33,16 +33,6 @@ module.exports = (grunt) ->
         dest: 'build/img'
 
 
-    # Webserver.
-    connect:
-      server:
-        options:
-          port: 5000
-          hostname: '*'
-          base: 'build'
-          livereload: true
-
-
     # Optimize images
     imagemin:
       files:
@@ -150,5 +140,5 @@ module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask 'setup',   ['copy', 'includes', 'sass', 'autoprefixer', 'imagemin', 'uglify']
-  grunt.registerTask 'default', ['setup', 'connect', 'watch']
+  grunt.registerTask 'default', ['setup', 'watch']
   grunt.registerTask 'deploy',  ['ftp-deploy']
