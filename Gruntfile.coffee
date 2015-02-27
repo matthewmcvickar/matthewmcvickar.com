@@ -3,6 +3,13 @@ module.exports = (grunt) ->
   grunt.initConfig {
     pkg: grunt.file.readJSON('package.json')
 
+    # SASS and Autoprefixer for CSS, and watcher.
+    sass:
+      build:
+        options:
+          style: 'compressed'
+        files:
+          'tmp/style.css' : 'src/css/style.sass'
 
     # CSS auto-prefixing.
     autoprefixer:
@@ -10,16 +17,28 @@ module.exports = (grunt) ->
         src: 'tmp/style.css'
         dest: 'build/css/style.css'
 
+    # Optimize images
+    imagemin:
+      files:
+        expand: true
+        cwd: 'src/img'
+        src: ['**/*.{png,jpg,gif}']
+        dest: 'build/img/'
 
-    # CoffeeScript compilation.
-    coffee:
-      build:
-        options:
-          sourceMap: true
-          sourceMapDir: 'build/js/'
-        files:
-          'tmp/script.js' : 'src/js/script.coffee'
+    # Concatenate and uglify JS.
+    # uglify:
+    #   files:
+    #     'build/js/script.js' : [
+    #       'bower_components/jquery/dist/jquery.js'
+    #       'src/js/script.js'
+    #     ]
 
+    # Build HTML pages from templates.
+    includes:
+      files:
+        src: ['src/*.html', '!src/_*.html']
+        dest: 'build'
+        flatten: true
 
     # Copy SVG and favicon to build/img.
     copy:
@@ -32,74 +51,41 @@ module.exports = (grunt) ->
         src: '*.{ico,svg}'
         dest: 'build/img'
 
+    # Remove the /build directory so we can start fresh when building.
+    clean:
+      files: [
+        'build'
+        'tmp'
+      ]
 
-    # Optimize images
-    imagemin:
-      files:
-        expand: true
-        cwd: 'src/img'
-        src: ['**/*.{png,jpg,gif}']
-        dest: 'build/img/'
-
-
-    # Build HTML pages from tmplates.
-    includes:
-      files:
-        src: ['src/*.html', '!src/_*.html']
-        dest: 'build'
-        flatten: true
-
-
-    # SASS and Autoprefixer for CSS, and watcher.
-    sass:
-      build:
-        options:
-          style: 'compressed'
-        files:
-          'tmp/style.css' : 'src/css/style.sass'
-
-
-    # Concatenate and uglify JS.
-    uglify:
-
-      # Only run whenever these libraries are updated or added to.
-      libraries:
-        files:
-          'src/js/lib.js' : [
-            'bower_components/jquery/dist/jquery.js'
-            'bower_components/jquery-visibility/jquery-visibility.js'
-          ]
-
-      # Run after changes to CoffeeScript file are JS-ified.
-      build:
-        files:
-          'build/js/lib+script.js' : [
-            'src/js/lib.js'
-            'tmp/script.js'
-          ]
-
-
-   # Live processing.
+    # Live processing.
     watch:
+      sass:
+        files: [
+          'src/css/*.sass'
+          'src/css/*.scss'
+        ]
+        tasks: ['sass:build']
+
       autoprefixer:
         files: ['tmp/style.css']
         tasks: ['autoprefixer']
 
-      coffee:
-        files: ['src/js/script.coffee']
-        tasks: ['coffee:build']
+      imagemin:
+        files: ['src/img/*.{gif,jpg,png}']
+        tasks: ['imagemin']
 
-      copy:
-        files: ['src/img/*.{ico,svg}']
-        tasks: ['copy']
+      # uglify:
+      #   files: ['js/script.js']
+      #   tasks: ['uglify:build']
 
       html:
         files: ['src/*.html']
         tasks: ['includes']
 
-      imagemin:
-        files: ['src/img/*.{gif,jpg,png}']
-        tasks: ['imagemin']
+      copy:
+        files: ['src/img/*.{ico,svg}']
+        tasks: ['copy']
 
       livereload:
         files: ['build/css/style.css']
@@ -113,17 +99,6 @@ module.exports = (grunt) ->
         ]
         options: { livereload: true }
 
-      sass:
-        files: [
-          'src/css/*.sass'
-          'src/css/*.scss'
-        ]
-        tasks: ['sass:build']
-
-      uglify:
-        files: ['tmp/script.js']
-        tasks: ['uglify:build']
-
 
     # Push site to matthewmcvickar.com.
     'ftp-deploy':
@@ -134,11 +109,11 @@ module.exports = (grunt) ->
           authKey: 'primary'
         src: 'build',
         dest: 'public_html',
-        exclusions: ['build/**/.DS_Store', '*.map']
+        exclusions: ['.DS_Store', '*.map']
   }
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask 'setup',   ['copy', 'includes', 'sass', 'autoprefixer', 'imagemin', 'uglify']
+  grunt.registerTask 'setup',   ['clean', 'copy', 'includes', 'sass', 'autoprefixer', 'imagemin']
   grunt.registerTask 'default', ['setup', 'watch']
   grunt.registerTask 'deploy',  ['ftp-deploy']
