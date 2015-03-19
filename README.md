@@ -12,36 +12,31 @@ My personal website.
 
 ### Instructions
 
-1. [Download this repo](https://github.com/matthewmcvickar/matthewmcvickar.com/archive/master.zip) or clone it.
+1. [Download this repository](https://github.com/matthewmcvickar/matthewmcvickar.com/archive/master.zip) or clone it.
 
 1. Open a terminal window.
 
-1. Install NodeJS if you don't have it already:
+1. [Install Homebrew](http://brew.sh/) if you don't have it already.
+
+1. Install NodeJS globally:
 
     ```sh
-    $ brew install node
+    brew install node
     ```
 
-1. Set correct permissions for NodeJS to not require `sudo` for commands.
-
-    ```sh
-    $ sudo chown -R `whoami` ~/.npm
-    $ sudo chown -R `whoami` /usr/local/lib/node_modules
-    ```
-
-1. Install Grunt if you don't have it already.
+1. Install Grunt globally:
 
     ```sh
     $ npm install -g grunt-cli
     ```
 
-1. Install Bower if you don't have it already.
+1. Install Bower globally:
 
     ```sh
     $ npm install -g bower
     ```
 
-1. Install the SASS gem:
+1. Install the SASS gem globally:
 
     ```sh
     $ gem install sass
@@ -57,7 +52,7 @@ My personal website.
     $ npm install
     ```
 
-1. Fetch frontend JavaScript library dependencies with Bower:
+1. Fetch frontend library dependencies with Bower:
 
     ```sh
     $ bower install
