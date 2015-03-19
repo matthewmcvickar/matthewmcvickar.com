@@ -1,12 +1,14 @@
 # Workflow
 .grunt
 .sass-cache
-bower_components
-node_modules
-tmp
 .ftppass
 *.map
+bower_components
+node_modules
+
+tmp
 build
+_site
 
 # OS-generated files
 .DS_Store

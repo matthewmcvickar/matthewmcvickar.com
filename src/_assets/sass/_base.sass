@@ -36,7 +36,7 @@ a
   &:hover
     color: $dark
 
-.container
+.site-container
   margin: 0 auto $line auto
   width: 700px
   max-width: 100%
@@ -93,21 +93,21 @@ li
   line-height: 1.6
   padding: 0
 
-article
+.site-content
   margin-top: $line*1.5
-
-article > section
-  margin-bottom: $line*2
 
 section
   margin-bottom: $line*3
+
+.page > section
+  margin-bottom: $line*2
 
 +breakpoint(full)
   h1
     text-align: left
     margin-left: $indent - 1px
 
-  article > section
+  .page > section
     display: flex
 
     h2

@@ -1,0 +1,16 @@
+<header class="site-header">
+  <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+
+  <nav class="site-nav">
+    <ul>
+      {% for link in site.navigation %}
+        <li {% if page.url == link.url %}class="current"{% endif %}>
+          <a href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+      {% endfor %}
+
+      <li><a href="mailto:{{ site.email_address }}">Email</a></li>
+      <li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>
+    </ul>
+  </nav>
+</header>

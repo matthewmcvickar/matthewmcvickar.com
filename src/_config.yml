@@ -1,0 +1,42 @@
+# Site Settings
+title:       "Matthew McVickar"
+email:       "matthew@matthewmcvickar.com"
+description: "Web developer and music-obsessive living and working in Portland, Oregon, US."
+baseurl:     ""
+url:         "http://matthewmcvickar.com"
+
+# Personal Settings
+twitter_username: "matthewmcvickar"
+github_username:  "matthewmcvickar"
+email_address:    "matthew@matthewmcvickar.com"
+
+# Navigation
+navigation:
+  - label: "Portfolio"
+    url: "/portfolio/"
+  - label: "Skills"
+    url: "/skills/"
+  - label: "About"
+    url: "/about/"
+
+# YAML Front Matter Defaults
+# Automatically set the layout for pages and posts.
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Build Settings
+markdown: kramdown
+
+# Dependencies
+gems:
+  - jekyll-redirect-from

@@ -1,104 +1,79 @@
 module.exports = (grunt) ->
 
+  # Load all Grunt tasks.
+  require('jit-grunt')(grunt);
+
+  # Configure Grunt tasks.
   grunt.initConfig {
-    pkg: grunt.file.readJSON('package.json')
 
-    # SASS and Autoprefixer for CSS, and watcher.
-    sass:
-      build:
-        options:
-          style: 'compressed'
-        files:
-          'tmp/style.css' : 'src/css/style.sass'
-
-    # CSS auto-prefixing.
-    autoprefixer:
-      build:
-        src: 'tmp/style.css'
-        dest: 'build/css/style.css'
-
-    # Optimize images
-    imagemin:
-      files:
-        expand: true
-        cwd: 'src/img'
-        src: ['**/*.{png,jpg,gif}']
-        dest: 'build/img/'
-
-    # Concatenate and uglify JS.
-    # uglify:
-    #   files:
-    #     'build/js/script.js' : [
-    #       'bower_components/jquery/dist/jquery.js'
-    #       'src/js/script.js'
-    #     ]
-
-    # Build HTML pages from templates.
-    includes:
-      files:
-        src: ['src/*.html', '!src/_*.html']
-        dest: 'build'
-        flatten: true
-
-    # Copy SVG and favicon to build/img.
-    copy:
-      htaccess:
-        files:
-          'build/.htaccess' : 'src/.htaccess'
-      images:
-        expand: true
-        cwd: 'src/img'
-        src: '*.{ico,svg}'
-        dest: 'build/img'
-
-    # Remove the /build directory so we can start fresh when building.
+    # Remove the /_site and /tmp directories so we can start fresh.
     clean:
       files: [
-        'build'
+        '_site'
         'tmp'
       ]
 
-    # Live processing.
-    watch:
-      sass:
-        files: [
-          'src/css/*.sass'
-          'src/css/*.scss'
-        ]
-        tasks: ['sass:build']
+    # Compile SASS to CSS and Autoprefix it.
+    sass:
+      build:
+        files:
+          'tmp/style.css' : 'src/_assets/sass/style.sass'
+        options:
+          style: 'compressed'
 
+    autoprefixer:
+      build:
+        src: 'tmp/style.css'
+        dest: '_site/css/style.css'
+
+    # Optimize images.
+    imagemin:
+      files:
+        expand: true
+        cwd: 'src/_assets/img'
+        src: ['**/*.{png,jpg,gif}']
+        dest: '_site/img/'
+      options:
+        progressive: true
+
+    # BrowserSync.
+    browserSync:
+      files:
+        src: ['_site/**/*']
+      options:
+        watchTask: true
+        server:
+          baseDir: '_site'
+
+    # Jekyll.
+    jekyll:
+      build:
+        options:
+          src: 'src'
+          dest: '_site'
+
+    # Live compilation.
+    watch:
+      # Recompile CSS when SASS files change.
+      sass:
+        files: ['src/_assets/sass/**/*.{sass,scss}']
+        tasks: ['sass']
+
+      # Re-autoprefix CSS when the stylesheet is recompiled.
       autoprefixer:
         files: ['tmp/style.css']
         tasks: ['autoprefixer']
 
+      # Re-imagemin when images change. The `newer:` prefix only runs imagemin
+      # on files that have modified since this task was last run.
       imagemin:
-        files: ['src/img/*.{gif,jpg,png}']
-        tasks: ['imagemin']
+        files: ['src/img/**/*.{gif,jpg,png}']
+        tasks: ['newer:imagemin']
 
-      # uglify:
-      #   files: ['js/script.js']
-      #   tasks: ['uglify:build']
-
-      html:
-        files: ['src/*.html']
-        tasks: ['includes']
-
-      copy:
-        files: ['src/img/*.{ico,svg}']
-        tasks: ['copy']
-
-      livereload:
-        files: ['build/css/style.css']
-        options: { livereload: true }
-
-      reload:
-        files: [
-          'build/*.html'
-          'build/img/*'
-          'build/js/*.js'
-        ]
-        options: { livereload: true }
-
+      # Re-build Jekyll site and assets when HTML and text files change.
+      jekyll:
+        files: ['src/**/*.{md,html,txt}', 'src/.htaccess']
+        tasks: ['build']
 
     # Push site to matthewmcvickar.com.
     'ftp-deploy':
@@ -107,13 +82,26 @@ module.exports = (grunt) ->
           host: 'matthewmcvickar.com',
           port: 21,
           authKey: 'primary'
-        src: 'build',
-        dest: 'public_html',
+        src: '_site',
+        dest: 'public_html/matthewmcvickar.com/',
         exclusions: ['.DS_Store', '*.map']
   }
 
-  require('load-grunt-tasks')(grunt)
+  # Register Grunt tasks.
+  grunt.registerTask 'build', [
+    'clean'
+    'jekyll'
+    'sass'
+    'autoprefixer'
+    'imagemin'
+  ]
 
-  grunt.registerTask 'setup',   ['clean', 'copy', 'includes', 'sass', 'autoprefixer', 'imagemin']
-  grunt.registerTask 'default', ['setup', 'watch']
-  grunt.registerTask 'deploy',  ['ftp-deploy']
+  grunt.registerTask 'default', [
+    'build'
+    'browserSync'
+    'watch'
+  ]
+
+  grunt.registerTask 'deploy', [
+    'ftp-deploy'
+  ]
