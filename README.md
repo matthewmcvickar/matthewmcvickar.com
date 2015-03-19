@@ -21,7 +21,7 @@ My personal website.
 1. Install NodeJS globally:
 
     ```sh
-    brew install node
+    $ brew install node
     ```
 
 1. Install Grunt globally:
