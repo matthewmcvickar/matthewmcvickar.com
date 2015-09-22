@@ -17,7 +17,7 @@ module.exports = (grunt) ->
     sass:
       build:
         files:
-          '.tmp/style.css' : 'src/_assets/sass/style.sass'
+          '.tmp/style.css' : 'src/_assets/sass/style.scss'
         options:
           style: 'compressed'
 
@@ -43,7 +43,26 @@ module.exports = (grunt) ->
       options:
         watchTask: true
         server:
-          baseDir: '_site'
+          baseDir: '_site',
+        notify: {
+          styles: [
+            "z-index: 9999",
+            "position: fixed",
+            "left: 50%",
+            "top: 0px",
+            "transform: translate(-50%, 0)",
+            "margin: 0",
+            "padding: 10px 15px",
+            "border-bottom-left-radius: 5px",
+            "border-bottom-right-radius: 5px",
+            "background-color: rgba(0, 0, 0, 0.5)",
+            "color: white",
+            "font-family: sans-serif",
+            "font-size: 12px",
+            "font-weight: bold",
+            "text-align: center"
+          ]
+        }
 
     # Jekyll.
     jekyll:
@@ -56,7 +75,7 @@ module.exports = (grunt) ->
     watch:
       # Recompile CSS when SASS files change.
       sass:
-        files: ['src/_assets/sass/**/*.{sass,scss}']
+        files: ['src/_assets/sass/**/*.{scss}']
         tasks: ['sass']
 
       # Re-autoprefix CSS when the stylesheet is recompiled.

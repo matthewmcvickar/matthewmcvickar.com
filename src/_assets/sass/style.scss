@@ -1,0 +1,26 @@
+// Breakpoints
+$breakpoint-medium: 500px;
+$breakpoint-full:   740px;
+
+// Colors.
+$blue:    #09F;
+$dark:    #333;
+$medium:  #999;
+$light:   #BBB;
+$lighter: #F6F6F6;
+
+// Dimensions.
+$line:    20px;
+$curve:   4px;
+$indent:  160px;
+
+// Includes
+@import "normalize";
+@import "mixins";
+@import "base";
+@import "header";
+@import "home";
+@import "about";
+@import "portfolio";
+@import "skills";
+@import "payment";

@@ -1,0 +1,20 @@
+.page-payment {
+  h2 {
+    color: $blue;
+    font-weight: bold;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include breakpoint(full) {
+    section:not(.for-hire) {
+      margin-top: $line*1.75;
+    }
+
+    h2 br {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,149 @@
+// Mixins
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+// Basics
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+// Style
+
+::selection {
+  background: $blue;
+  color: white;
+}
+
+body {
+  color: $dark;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 0 $line;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: $dark;
+  }
+}
+
+.site-container {
+  margin: 0 auto $line auto;
+  width: 700px;
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4
+{
+  a {
+    color: inherit;
+  }
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: $line*1.5;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: $light;
+  font-size: 22px;
+  margin: $line 0 $line/2;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $dark;
+  font-size: 20px;
+  margin: 0 0 $line/2 0;
+}
+
+h4 {
+  color: $medium;
+  font-size: 16px;
+  margin: $line/2 0;
+  text-transform: uppercase;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 0 $line/2;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+ul {
+  list-style: square;
+  margin: 0;
+  padding: 0 0 0 $line;
+}
+
+li {
+  line-height: 1.6;
+  padding: 0;
+}
+
+.site-content {
+  margin-top: $line*1.5;
+}
+
+section {
+  margin-bottom: $line*3;
+}
+
+.page > section {
+  margin-bottom: $line*2;
+}
+
+@include breakpoint(full) {
+  h1 {
+    text-align: left;
+    margin-left: $indent - 1px;
+  }
+
+  .page > section {
+    display: flex;
+
+    h2 {
+      flex: 1;
+      max-width: $indent;
+
+      font-size: 18px;
+      margin: 0;
+    }
+
+    h2 + div,
+    h2 + ul {
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+.page-portfolio {
+  a {
+    font-weight: bold
+  }
+
+  // Anchor indicator.
+  h3 a:hover:after {
+    content: " #";
+    color: $light;
+  }
+
+  ul {
+    padding-bottom: $line;
+  }
+
+  .project-aspects {
+    color: $medium;
+    font-size: 80%;
+  }
+}
+
+.device-screenshots {
+  @include breakpoint(full) {
+    margin-left: -$indent;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  padding: $line/2 0;
+  text-align: center;
+
+  .row {
+    flex: 1;
+    align-self: flex-end;
+  }
+
+  .device {
+    $padding: 4px;
+    $case: #444;
+
+    box-sizing: content-box;
+
+    background: $case;
+    border-radius: $curve;
+
+    display: inline-block;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: $curve;
+    }
+
+    // 16×10
+    &.desktop {
+      max-width: 375px;
+      max-height: 234px;
+    }
+
+    // 15×20
+    &.tablet {
+      max-width: 140px;
+      max-height: 186px;
+    }
+
+    // 9×16
+    &.phone {
+      max-width: 75px;
+      max-height: 133px;
+    }
+
+    &.desktop {
+      $keyboard-top: $padding*2.5;
+      $keyboard-bottom: $padding*0.75;
+      $keyboard-height: $keyboard-top + $keyboard-bottom;
+
+      border-radius: $curve $curve 0 0;
+      margin-bottom: $keyboard-height;
+      padding: $padding*1.25;
+
+      &:before {
+        content: "";
+        display: block;
+
+        position: absolute;
+        left: 40%;
+        bottom: -2%;
+
+        width: 20%;
+        height: 2%;
+
+        z-index: 2;
+
+        background: $medium;
+        border-radius: 0 0 $curve*4 $curve*4;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+
+        position: absolute;
+        bottom: -($keyboard-height);
+
+        height: $keyboard-top;
+
+        background: $light;
+        border-bottom: $keyboard-bottom solid $medium;
+        border-radius: 0 0 $curve $curve;
+
+        width: 108%;
+        left: -4%;
+
+        @include breakpoint(full) {
+          width: 116%;
+          left: -8%;
+        }
+      }
+
+      img {
+        border-radius: 0;
+      }
+    }
+
+    &.tablet {
+      margin-top: $line;
+      padding: ($padding*3.5) ($padding);
+
+      @include breakpoint(full) {
+        margin-left: $line*3;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+
+        position: absolute;
+        left: 47.5%;
+        bottom: 1.5%;
+
+        width: 5%;
+        height: 3.5%;
+
+        background: #555;
+        border-radius: 100%;
+      }
+    }
+
+    &.phone {
+      margin-top: $line;
+      padding: ($padding*3.25) ($padding*0.75);
+      margin-left: $line*2.5;
+
+      &:after {
+        content: "";
+        display: block;
+
+        position: absolute;
+        left: 46%;
+        bottom: 2%;
+
+        width: 10%;
+        height: 5%;
+
+        background: #555;
+        border-radius: 100%;
+      }
+    }
+  }
+}
