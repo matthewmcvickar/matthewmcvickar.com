@@ -6,24 +6,24 @@ module.exports = (grunt) ->
   # Configure Grunt tasks.
   grunt.initConfig {
 
-    # Remove the /_site and /tmp directories so we can start fresh.
+    # Remove the /_site and /.tmp directories so we can start fresh.
     clean:
       files: [
         '_site'
-        'tmp'
+        '.tmp'
       ]
 
     # Compile SASS to CSS and Autoprefix it.
     sass:
       build:
         files:
-          'tmp/style.css' : 'src/_assets/sass/style.sass'
+          '.tmp/style.css' : 'src/_assets/sass/style.sass'
         options:
           style: 'compressed'
 
     autoprefixer:
       build:
-        src: 'tmp/style.css'
+        src: '.tmp/style.css'
         dest: '_site/css/style.css'
 
     # Optimize images.
@@ -61,7 +61,7 @@ module.exports = (grunt) ->
 
       # Re-autoprefix CSS when the stylesheet is recompiled.
       autoprefixer:
-        files: ['tmp/style.css']
+        files: ['.tmp/style.css']
         tasks: ['autoprefixer']
 
       # Re-imagemin when images change. The `newer:` prefix only runs imagemin

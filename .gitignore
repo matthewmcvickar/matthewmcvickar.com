@@ -5,7 +5,6 @@
 *.map
 bower_components
 node_modules
-
 tmp
 build
 _site
