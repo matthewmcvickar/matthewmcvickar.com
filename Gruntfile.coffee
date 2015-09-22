@@ -83,11 +83,10 @@ module.exports = (grunt) ->
         files: ['.tmp/style.css']
         tasks: ['autoprefixer']
 
-      # Re-imagemin when images change. The `newer:` prefix only runs imagemin
-      # on files that have modified since this task was last run.
+      # Re-imagemin when images change.
       imagemin:
         files: ['src/img/**/*.{gif,jpg,png}']
-        tasks: ['newer:imagemin']
+        tasks: ['imagemin']
 
       # Re-build Jekyll site and assets when HTML and text files change.
       jekyll:
