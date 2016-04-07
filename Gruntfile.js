@@ -127,7 +127,10 @@ module.exports = function(grunt) {
         },
         src: '_site',
         dest: 'public_html/matthewmcvickar.com/',
-        exclusions: ['.DS_Store', '*.map']
+        exclusions: [
+          '.DS_Store',
+          '*.map'
+        ]
       }
     }
   });
