@@ -26,14 +26,12 @@
     margin-left: $indent;
     text-align: left;
 
-    &:before {
-      content: "↳";
-      margin-right: -4px;
-      vertical-align: -1px;
-    }
-
     a {
       padding: 3px 8px;
+    }
+
+    li:first-child a {
+      margin-left: -8px;
     }
 
     li:after {
