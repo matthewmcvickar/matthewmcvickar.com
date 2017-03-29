@@ -115,23 +115,6 @@ module.exports = function(grunt) {
         files: ['src/**/*.{md,html,txt}', 'src/.htaccess'],
         tasks: ['build']
       },
-    },
-
-    // Push site to matthewmcvickar.com.
-    'ftp-deploy': {
-      build: {
-        auth: {
-          host: 'matthewmcvickar.com',
-          port: 21,
-          authKey: 'primary'
-        },
-        src: '_site',
-        dest: 'public_html/matthewmcvickar.com/',
-        exclusions: [
-          '.DS_Store',
-          '*.map'
-        ]
-      }
     }
   });
 
@@ -153,13 +136,6 @@ module.exports = function(grunt) {
       'build',
       'browserSync',
       'watch'
-    ]
-  );
-
-  grunt.registerTask(
-    'deploy',
-    [
-      'ftp-deploy'
     ]
   );
 
