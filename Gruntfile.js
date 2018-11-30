@@ -16,7 +16,6 @@ module.exports = function(grunt) {
     // Compile PostCSS to CSS.
     postcss: {
       options: {
-        map: true,
         processors: [
           require('postcss-calc'),
           require('postcss-import'),
