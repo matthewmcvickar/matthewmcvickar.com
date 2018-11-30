@@ -29,7 +29,7 @@
     "postcss-simple-vars": "^5.0.1"
   },
   "scripts": {
-    "start": "gulp",
-    "dist": "gulp dist"
+    "start": "grunt",
+    "build": "grunt build"
   }
 }

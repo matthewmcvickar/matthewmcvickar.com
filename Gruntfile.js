@@ -1,16 +1,15 @@
 module.exports = function(grunt) {
 
-  // Load all Grunt tasks and time them.
+  // Load all Grunt tasks.
   require('load-grunt-tasks')(grunt);
 
   // Configure Grunt tasks.
   grunt.initConfig({
 
-    // Remove the /_site and /.tmp directories so we can start fresh.
+    // Remove the /_site build directory so we can start fresh.
     clean: {
       files: [
-        '_site',
-        '.tmp'
+        '_site'
       ]
     },
 
