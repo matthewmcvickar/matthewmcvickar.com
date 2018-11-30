@@ -1,46 +1,46 @@
 .site-nav {
   font-weight: bold;
-  margin-top: $line/3;
+  margin-top: calc($line/3);
   text-align: center;
 
-  ul,
-  li {
+  & ul,
+  & li {
     display: inline;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  a {
+  & a {
     display: inline-block;
     line-height: 1;
     padding: 7px 12px;
   }
 
-  li.current a {
+  & li.current a {
     color: black;
   }
 
-  @include breakpoint(full) {
+  @media (min-width: $screen-md) {
     margin-top: 0;
     margin-left: $indent;
     text-align: left;
 
-    a {
+    & a {
       padding: 3px 8px;
     }
 
-    li:first-child a {
+    & li:first-child a {
       margin-left: -8px;
     }
 
-    li:after {
+    & li:after {
       content: " ■ ";
       font-size: 6px;
       vertical-align: 3px;
     }
 
-    li:last-child:after {
+    & li:last-child:after {
       display: none;
     }
   }

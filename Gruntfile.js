@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
-  // Load all Grunt tasks.
-  require('jit-grunt')(grunt);
+  // Load all Grunt tasks and time them.
+  require('load-grunt-tasks')(grunt);
 
   // Configure Grunt tasks.
   grunt.initConfig({
@@ -14,21 +14,22 @@ module.exports = function(grunt) {
       ]
     },
 
-    // Compile SASS to CSS and Autoprefix it.
-    sass: {
-      build: {
-        options: {
-          style: 'compressed'
-        },
-        files: {
-          '.tmp/style.css' : 'src/_assets/sass/style.scss'
-        }
-      }
-    },
-
-    autoprefixer: {
-      build: {
-        src: '.tmp/style.css',
+    // Compile PostCSS to CSS.
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('postcss-calc'),
+          require('postcss-import'),
+          require('postcss-mixins'),
+          require('postcss-nesting'),
+          require('postcss-simple-vars'),
+          require('autoprefixer')({browsers: ['last 1 version']}),
+          require('cssnano')
+        ]
+      },
+      dist: {
+        src: 'src/_assets/css/style.css',
         dest: '_site/css/style.css'
       }
     },
@@ -57,25 +58,7 @@ module.exports = function(grunt) {
           baseDir: '_site',
         },
         open: false,
-        notify: {
-          styles: [
-            "z-index: 9999",
-            "position: fixed",
-            "left: 50%",
-            "top: 0px",
-            "transform: translate(-50%, 0)",
-            "margin: 0",
-            "padding: 10px 15px",
-            "border-bottom-left-radius: 5px",
-            "border-bottom-right-radius: 5px",
-            "background-color: rgba(0, 0, 0, 0.5)",
-            "color: white",
-            "font-family: sans-serif",
-            "font-size: 12px",
-            "font-weight: bold",
-            "text-align: center"
-          ]
-        }
+        notify: false
       }
     },
 
@@ -92,16 +75,10 @@ module.exports = function(grunt) {
     // Live compilation.
     watch: {
 
-      // Recompile CSS when SASS files change.
-      sass: {
-        files: ['src/_assets/sass/**/*.{scss}'],
-        tasks: ['sass']
-      },
-
-      // Re-autoprefix CSS when the stylesheet is recompiled.
-      autoprefixer: {
-        files: ['.tmp/style.css'],
-        tasks: ['autoprefixer']
+      // Recompile stylesheet when CSS files change.
+      postcss: {
+        files: ['src/_assets/css/**/*.css'],
+        tasks: ['postcss']
       },
 
       // Re-imagemin when images change.
@@ -124,8 +101,7 @@ module.exports = function(grunt) {
     [
       'clean',
       'jekyll',
-      'sass',
-      'autoprefixer',
+      'postcss',
       'imagemin'
     ]
   );

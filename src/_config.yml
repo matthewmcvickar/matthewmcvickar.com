@@ -12,10 +12,10 @@ email_address:    "matthew@matthewmcvickar.com"
 
 # Navigation
 navigation:
-  - label: "Portfolio"
-    url: "/portfolio/"
-  - label: "Skills"
-    url: "/skills/"
+  # - label: "Portfolio"
+  #   url: "/portfolio/"
+  # - label: "Skills"
+  #   url: "/skills/"
   - label: "About"
     url: "/about/"
 
@@ -38,5 +38,5 @@ defaults:
 markdown: kramdown
 
 # Dependencies
-gems:
+plugins:
   - jekyll-redirect-from

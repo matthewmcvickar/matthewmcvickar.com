@@ -1,0 +1,17 @@
+/* Breakpoints */
+$screen-xs-max: 499px;
+$screen-sm: 500px;
+$screen-md: 740px;
+
+/* Colors. */
+$blue:      #09F;
+$dark-blue: #007aCC;
+$dark:      #333;
+$medium:    #999;
+$light:     #BBB;
+$lighter:   #F6F6F6;
+
+/* Dimensions. */
+$line:    20px;
+$curve:   4px;
+$indent:  160px;

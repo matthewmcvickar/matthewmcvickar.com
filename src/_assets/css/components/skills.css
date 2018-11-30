@@ -1,13 +1,13 @@
 .page-skills {
-  a {
+  & a {
     font-weight: bold;
   }
 
   & div > ul > li {
-    margin-bottom: $line/2;
+    margin-bottom: calc($line/2);
   }
 
-  small {
+  & small {
     color: $light;
     display: block;
   }

@@ -1,28 +1,28 @@
 .page-home {
 
-  .intro {
-    img {
+  & .intro {
+    & img {
       display: block;
       margin: 0 auto $line auto;
       max-width: 100%;
     }
 
-    @include breakpoint(0, medium) {
-      h2 {
+    @media (max-width: $screen-xs-max) {
+      & h2 {
         display: none;
       }
     }
   }
 
-  .for-hire {
-    margin-left: -$line;
-    margin-right: -$line;
+  & .for-hire {
+    margin-left: calc(- $line);
+    margin-right: calc(- $line);
     padding: $line;
 
-    background: linear-gradient(180deg, $blue 0%, $blue*.8 100%);
+    background: linear-gradient(180deg, $blue 0%, $dark-blue 100%);
     color: white;
 
-    h2 {
+    & h2 {
       color: white;
       font-size: 28px;
       font-weight: bold;
@@ -30,36 +30,36 @@
       max-width: 100%;
     }
 
-    p {
+    & p {
       font-size: 18px;
     }
 
-    a {
+    & a {
       border-bottom: 2px solid white;
       color: white;
       font-weight: bold;
     }
   }
 
-  .links {
-    $link-padding: $line/3;;
+  & .links {
+    $link-padding: calc($line/3);
 
-    ul {
+    & ul {
       list-style: none;
-      margin: -$link-padding 0 0 0;
+      margin: calc(- $link-padding) 0 0 0;
       padding: 0;
     }
 
-    li {
+    & li {
       color: $light;
       padding: $link-padding 0;
-      text-indent: -$link-padding;
+      text-indent: calc(- $link-padding);
 
-      a {
+      & a {
         padding: $link-padding 0 $link-padding $link-padding;
       }
 
-      code {
+      & code {
         background: $lighter;
         border-radius: $curve;
         padding: 1px 2px;
@@ -67,12 +67,12 @@
     }
   }
 
-  @include breakpoint(full) {
-    .intro img {
+  @media (min-width: $screen-md) {
+    & .intro img {
       margin-bottom: 0;
     }
 
-    .for-hire {
+    & .for-hire {
       border-radius: $curve;
       padding: $line;
 
@@ -84,10 +84,10 @@
     }
   }
 
-  @include breakpoint(medium) {
-    .intro img {
+  @media (min-width: $screen-sm) {
+    & .intro img {
       float: right;
-      margin-top: $line/3;
+      margin-top: calc($line/3);
       margin-left: $line;
       width: 100px;
     }

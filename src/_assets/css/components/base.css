@@ -1,22 +1,7 @@
-// Mixins
-
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-
-// Basics
-
 * {
   position: relative;
   box-sizing: border-box;
 }
-
-// Style
 
 ::selection {
   background: $blue;
@@ -58,7 +43,7 @@ h2,
 h3,
 h4
 {
-  a {
+  & a {
     color: inherit;
   }
 }
@@ -67,34 +52,34 @@ h1 {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-  margin-top: $line*1.5;
+  margin-top: calc($line*1.5);
   margin-bottom: 0;
 }
 
 h2 {
   color: $light;
   font-size: 22px;
-  margin: $line 0 $line/2;
+  margin: $line 0 calc($line/2);
   text-transform: uppercase;
 }
 
 h3 {
   color: $dark;
   font-size: 20px;
-  margin: 0 0 $line/2 0;
+  margin: 0 0 calc($line/2) 0;
 }
 
 h4 {
   color: $medium;
   font-size: 16px;
-  margin: $line/2 0;
+  margin: calc($line/2) 0;
   text-transform: uppercase;
 }
 
 p {
   line-height: 1.6;
   margin: 0;
-  padding: 0 0 $line/2;
+  padding: 0 0 calc($line/2);
 
   &:last-child {
     padding-bottom: 0;
@@ -113,27 +98,27 @@ li {
 }
 
 .site-content {
-  margin-top: $line*1.5;
+  margin-top: calc($line*1.5);
 }
 
 section {
-  margin-bottom: $line*3;
+  margin-bottom: calc($line*3);
 }
 
 .page > section {
-  margin-bottom: $line*2;
+  margin-bottom: calc($line*2);
 }
 
-@include breakpoint(full) {
+@media (min-width: $screen-md) {
   h1 {
     text-align: left;
-    margin-left: $indent - 1px;
+    margin-left: calc($indent - 1px);
   }
 
   .page > section {
     display: flex;
 
-    h2 {
+    & h2 {
       flex: 1;
       max-width: $indent;
 
@@ -141,8 +126,8 @@ section {
       margin: 0;
     }
 
-    h2 + div,
-    h2 + ul {
+    & h2 + div,
+    & h2 + ul {
       flex: 1;
     }
   }
