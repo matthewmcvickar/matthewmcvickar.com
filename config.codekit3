@@ -79,34 +79,6 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/_src\/css\/components\/_portfolio.scss" : {
-      "aP" : 0,
-      "bl" : 0,
-      "dP" : 10,
-      "ec" : 1,
-      "ft" : 4,
-      "ma" : 0,
-      "oA" : 1,
-      "oAP" : "\/_src\/css\/components\/_portfolio.css",
-      "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
-    },
-    "\/_src\/css\/components\/_skills.scss" : {
-      "aP" : 0,
-      "bl" : 0,
-      "dP" : 10,
-      "ec" : 1,
-      "ft" : 4,
-      "ma" : 0,
-      "oA" : 1,
-      "oAP" : "\/_src\/css\/components\/_skills.css",
-      "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
-    },
     "\/_src\/css\/components\/_variables.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -143,13 +115,26 @@
       "oAP" : "\/.gitignore",
       "oF" : 0
     },
-    "\/about.html" : {
+    "\/about\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/about.html",
+      "oAP" : "\/about\/index.html",
       "oF" : 0
+    },
+    "\/apple-touch-icon.png" : {
+      "ft" : 32768,
+      "iS" : 107513,
+      "oA" : 0,
+      "oAP" : "\/apple-touch-icon.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
     },
     "\/css\/style.css" : {
       "aP" : 1,
@@ -162,6 +147,40 @@
       "oAP" : "\/css\/style-min.css",
       "oF" : 0,
       "pg" : 0
+    },
+    "\/favicon-16x16.png" : {
+      "ft" : 32768,
+      "iS" : 986,
+      "oA" : 0,
+      "oAP" : "\/favicon-16x16.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/favicon-32x32.png" : {
+      "ft" : 32768,
+      "iS" : 3572,
+      "oA" : 0,
+      "oAP" : "\/favicon-32x32.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/favicon.ico" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/favicon.ico",
+      "oF" : 0
     },
     "\/img\/favicon.ico" : {
       "cB" : 0,
@@ -197,36 +216,6 @@
       "q" : 100,
       "rq" : 75
     },
-    "\/img\/portfolio\/metafilter-desktop.gif" : {
-      "ft" : 4194304,
-      "iS" : 38463,
-      "oA" : 0,
-      "oAP" : "\/img\/portfolio\/metafilter-desktop.gif",
-      "oF" : 0,
-      "opt" : 1,
-      "ou" : "lpckwebp-none",
-      "rq" : 75
-    },
-    "\/img\/portfolio\/metafilter-phone.gif" : {
-      "ft" : 4194304,
-      "iS" : 12308,
-      "oA" : 0,
-      "oAP" : "\/img\/portfolio\/metafilter-phone.gif",
-      "oF" : 0,
-      "opt" : 1,
-      "ou" : "lpckwebp-none",
-      "rq" : 75
-    },
-    "\/img\/portfolio\/metafilter-tablet.gif" : {
-      "ft" : 4194304,
-      "iS" : 34288,
-      "oA" : 0,
-      "oAP" : "\/img\/portfolio\/metafilter-tablet.gif",
-      "oF" : 0,
-      "opt" : 1,
-      "ou" : "lpckwebp-none",
-      "rq" : 75
-    },
     "\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
@@ -257,20 +246,12 @@
       "oO" : 1,
       "oS" : 1
     },
-    "\/payment.html" : {
+    "\/payment\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/payment.html",
-      "oF" : 0
-    },
-    "\/portfolio.html" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/portfolio.html",
+      "oAP" : "\/payment\/index.html",
       "oF" : 0
     },
     "\/README.md" : {
@@ -291,14 +272,6 @@
       "pME" : 1,
       "rFN" : 0,
       "uCM" : 0
-    },
-    "\/skills.html" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/skills.html",
-      "oF" : 0
     }
   },
   "hooks" : [
@@ -311,7 +284,7 @@
     "creationDate" : 644883607.38277698,
     "displayValue" : "matthewmcvickar.com",
     "displayValueWasSetByUser" : 0,
-    "iconImageName" : "brackets-ucla",
+    "iconImageName" : "\/apple-touch-icon.png",
     "iconImageWasSetByUser" : 0
   },
   "projectSettings" : {
