@@ -10,7 +10,7 @@
 
   @media (min-width: $screen-md) {
     & section:not(.for-hire) {
-      margin-top: calc($line*1.75);
+      margin-top: $line*1.75;
     }
 
     & h2 br {

@@ -15,8 +15,8 @@
   }
 
   & .for-hire {
-    margin-left: calc(- $line);
-    margin-right: calc(- $line);
+    margin-left: -$line;
+    margin-right: -$line;
     padding: $line;
 
     background: linear-gradient(180deg, $blue 0%, $dark-blue 100%);
@@ -42,18 +42,18 @@
   }
 
   & .links {
-    $link-padding: calc($line/3);
+    $link-padding: $line/3;
 
     & ul {
       list-style: none;
-      margin: calc(- $link-padding) 0 0 0;
+      margin: -$link-padding 0 0 0;
       padding: 0;
     }
 
     & li {
       color: $light;
       padding: $link-padding 0;
-      text-indent: calc(- $link-padding);
+      text-indent: -$link-padding;
 
       & a {
         padding: $link-padding 0 $link-padding $link-padding;
@@ -87,9 +87,11 @@
   @media (min-width: $screen-sm) {
     & .intro img {
       float: right;
-      margin-top: calc($line/3);
+      margin-top: $line/3;
       margin-left: $line;
-      width: 100px;
+      width: 175px;
+      border-radius: 50%;
+      overflow: hidden;
     }
   }
 }

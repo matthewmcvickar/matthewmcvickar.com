@@ -1,7 +1,7 @@
 .page-about {
   & img {
     float: right;
-    margin: calc($line/3) 0 $line $line;
+    margin: $line/3 0 $line $line;
     width: 45%;
   }
 }

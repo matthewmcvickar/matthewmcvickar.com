@@ -29,7 +29,7 @@ a {
 
 .site-container {
   margin: 0 auto $line auto;
-  width: 700px;
+  width: 800px;
   max-width: 100%;
 }
 
@@ -52,34 +52,34 @@ h1 {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-  margin-top: calc($line*1.5);
+  margin-top: $line*1.5;
   margin-bottom: 0;
 }
 
 h2 {
   color: $light;
   font-size: 22px;
-  margin: $line 0 calc($line/2);
+  margin: $line 0 $line/2;
   text-transform: uppercase;
 }
 
 h3 {
   color: $dark;
   font-size: 20px;
-  margin: 0 0 calc($line/2) 0;
+  margin: 0 0 $line/2 0;
 }
 
 h4 {
   color: $medium;
   font-size: 16px;
-  margin: calc($line/2) 0;
+  margin: $line/2 0;
   text-transform: uppercase;
 }
 
 p {
   line-height: 1.6;
   margin: 0;
-  padding: 0 0 calc($line/2);
+  padding: 0 0 $line/2;
 
   &:last-child {
     padding-bottom: 0;
@@ -98,21 +98,21 @@ li {
 }
 
 .site-content {
-  margin-top: calc($line*1.5);
+  margin-top: $line*1.5;
 }
 
 section {
-  margin-bottom: calc($line*3);
+  margin-bottom: $line*3;
 }
 
 .page > section {
-  margin-bottom: calc($line*2);
+  margin-bottom: $line*2;
 }
 
 @media (min-width: $screen-md) {
   h1 {
     text-align: left;
-    margin-left: calc($indent - 1px);
+    margin-left: $indent - 1px;
   }
 
   .page > section {

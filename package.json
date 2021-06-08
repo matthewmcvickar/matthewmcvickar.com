@@ -1,6 +1,6 @@
 {
   "name": "matthewmcvickar.com",
-  "version": "2.1.0",
+  "version": "3",
   "homepage": "https://github.com/matthewmcvickar/matthewmcvickar.com",
   "authors": [
     "Matthew McVickar <matthew@matthewmcvickar.com>"
@@ -10,26 +10,6 @@
     "bower_components"
   ],
   "devDependencies": {
-    "cssnano": "^4.1.7",
-    "grunt": "^1.0.3",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-imagemin": "^3.1.0",
-    "grunt-contrib-uglify": "^4.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-jekyll": "^1.0.0",
-    "grunt-postcss": "^0.9.0",
-    "load-grunt-tasks": "^4.0.0",
-    "normalize.css": "^8.0.1",
-    "postcss": "^7.0.6",
-    "postcss-calc": "^7.0.1",
-    "postcss-import": "^12.0.1",
-    "postcss-mixins": "^6.2.0",
-    "postcss-nesting": "^7.0.0",
-    "postcss-simple-vars": "^5.0.1"
-  },
-  "scripts": {
-    "start": "grunt",
-    "build": "grunt build"
+    "normalize.css": "^8.0.1"
   }
 }

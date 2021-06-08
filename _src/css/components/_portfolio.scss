@@ -27,13 +27,13 @@
 
 .device-screenshots {
   @media (min-width: $screen-md) {
-    margin-left: calc(- $indent);
+    margin-left: -$indent;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  padding: calc($line/2) 0;
+  padding: $line/2 0;
   text-align: center;
 
   & .row {
@@ -77,13 +77,13 @@
     }
 
     &.desktop {
-      $keyboard-top: calc($padding*2.5);
-      $keyboard-bottom: calc($padding*0.75);
-      $keyboard-height: calc($keyboard-top + $keyboard-bottom);
+      $keyboard-top: $padding*2.5;
+      $keyboard-bottom: $padding*0.75;
+      $keyboard-height: $keyboard-top + $keyboard-bottom;
 
       border-radius: $curve $curve 0 0;
       margin-bottom: $keyboard-height;
-      padding: calc($padding*1.25);
+      padding: $padding*1.25;
 
       &:before {
         content: "";
@@ -99,7 +99,7 @@
         z-index: 2;
 
         background: $medium;
-        border-radius: 0 0 calc($curve*4) calc($curve*4);
+        border-radius: 0 0 $curve*4 $curve*4;
       }
 
       &:after {
@@ -107,7 +107,7 @@
         display: block;
 
         position: absolute;
-        bottom: calc(- $keyboard-height);
+        bottom: -$keyboard-height;
 
         height: $keyboard-top;
 
@@ -131,10 +131,10 @@
 
     &.tablet {
       margin-top: $line;
-      padding: calc($padding*3.5) $padding;
+      padding: $padding*3.5 $padding;
 
       @media (min-width: $screen-md) {
-        margin-left: calc($line*3);
+        margin-left: $line*3;
       }
 
       &:after {
@@ -155,8 +155,8 @@
 
     &.phone {
       margin-top: $line;
-      padding: calc($padding*3.25) calc($padding*0.75);
-      margin-left: calc($line*2.5);
+      padding: $padding*3.25 $padding*0.75;
+      margin-left: $line*2.5;
 
       &:after {
         content: "";
