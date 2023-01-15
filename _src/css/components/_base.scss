@@ -3,6 +3,24 @@
   box-sizing: border-box;
 }
 
+/* Additional reset. */
+h1,
+h2,
+h3,
+ol,
+ul,
+li,
+p {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
 ::selection {
   background: $blue;
   color: white;
@@ -29,8 +47,7 @@ a {
 
 .site-container {
   margin: 0 auto $line auto;
-  width: 800px;
-  max-width: 100%;
+  max-width: 450px;
 }
 
 h1,
@@ -52,13 +69,13 @@ h1 {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-  margin-top: $line*1.5;
+  margin-top: $line;
   margin-bottom: 0;
 }
 
 h2 {
-  color: $light;
-  font-size: 22px;
+  color: $gray;
+  font-size: 18px;
   margin: $line 0 $line/2;
   text-transform: uppercase;
 }
@@ -70,7 +87,7 @@ h3 {
 }
 
 h4 {
-  color: $medium;
+  color: $gray;
   font-size: 16px;
   margin: $line/2 0;
   text-transform: uppercase;
@@ -98,7 +115,7 @@ li {
 }
 
 .site-content {
-  margin-top: $line*1.5;
+  margin-top: $line;
 }
 
 section {
@@ -107,28 +124,4 @@ section {
 
 .page > section {
   margin-bottom: $line*2;
-}
-
-@media (min-width: $screen-md) {
-  h1 {
-    text-align: left;
-    margin-left: $indent - 1px;
-  }
-
-  .page > section {
-    display: flex;
-
-    & h2 {
-      flex: 1;
-      max-width: $indent;
-
-      font-size: 18px;
-      margin: 0;
-    }
-
-    & h2 + div,
-    & h2 + ul {
-      flex: 1;
-    }
-  }
 }

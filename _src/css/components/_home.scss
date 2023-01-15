@@ -1,16 +1,20 @@
 .page-home {
 
-  & .intro {
-    & img {
-      display: block;
-      margin: 0 auto $line auto;
-      max-width: 100%;
-    }
+  & .portrait {
+    display: block;
+    margin: 0 auto $line auto;
+    max-width: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 
-    @media (max-width: $screen-xs-max) {
-      & h2 {
-        display: none;
-      }
+  & h2 {
+    font-weight: bold;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    & .intro h2 {
+      display: none;
     }
   }
 
@@ -46,24 +50,27 @@
 
     & ul {
       list-style: none;
-      margin: -$link-padding 0 0 0;
       padding: 0;
     }
 
     & li {
-      color: $light;
+      color: $gray;
       padding: $link-padding 0;
-      text-indent: -$link-padding;
+      // text-indent: -$link-padding;
 
       & a {
-        padding: $link-padding 0 $link-padding $link-padding;
+        padding: $link-padding 0;
       }
 
       & code {
-        background: $lighter;
+        background: $light-gray;
         border-radius: $curve;
         padding: 1px 2px;
       }
+    }
+
+    & a {
+      font-weight: 500;
     }
   }
 
