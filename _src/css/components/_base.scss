@@ -16,6 +16,11 @@ p {
   padding: 0;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
