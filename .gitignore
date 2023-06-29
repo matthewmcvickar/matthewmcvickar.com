@@ -1,14 +1,9 @@
 # Workflow
-.grunt
 .sass-cache
-.ftppass
-*.map
-bower_components
-node_modules
 .tmp
-build
-_site
+*.map
 config.codekit3
+node_modules
 
 # OS-generated files
 .DS_Store
