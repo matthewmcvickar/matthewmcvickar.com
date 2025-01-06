@@ -6,11 +6,15 @@ $screen-md: 740px;
 /* Colors. */
 $blue:       #0079CA;
 $dark-blue:  #007ACC;
+$light-blue: #cce4f3;
 $dark:       #333;
 $gray:       #717171;
 $light-gray: #F6F6F6;
 
 /* Dimensions. */
-$line:    20px;
-$curve:   4px;
-$indent:  160px;
+$line:       20px;
+$half-line:  10px;
+$third-line:  5px;
+$curve:       4px;
+$curve-big:  12px;
+$indent:    160px;

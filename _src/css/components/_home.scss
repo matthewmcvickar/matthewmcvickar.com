@@ -25,7 +25,7 @@
     padding: variables.$line;
     display: block;
 
-    background: linear-gradient(180deg, $blue 0%, $dark-blue 100%);
+    background: linear-gradient(180deg, variables.$blue 0%, variables.$dark-blue 100%);
     color: white;
 
     & h2 {
@@ -44,6 +44,13 @@
       border-bottom: 2px solid white;
       color: white;
       font-weight: bold;
+    }
+
+    & strong {
+      color: variables.$dark;
+      border-radius: variables.$curve;
+      background: variables.$light-blue;
+      padding: 2px 4px;
     }
   }
 
@@ -82,10 +89,9 @@
     }
 
     & .for-hire {
-      border-radius: $curve;
-      padding: $line;
-
-      display: flex;
+      box-shadow:
+        -6px -6px 0 rgba(variables.$blue, .4),
+        -12px -12px 0 rgba(variables.$blue, .2);
       border-radius: variables.$curve-big;
       padding: variables.$line;
 
