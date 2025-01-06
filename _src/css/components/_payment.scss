@@ -1,6 +1,8 @@
+@use "variables";
+
 .page-payment {
   & h2 {
-    color: $blue;
+    color: variables.$blue;
     font-weight: bold;
 
     & br {
@@ -8,9 +10,9 @@
     }
   }
 
-  @media (min-width: $screen-md) {
+  @media (min-width: variables.$screen-md) {
     & section:not(.for-hire) {
-      margin-top: $line*1.75;
+      margin-top: variables.$line*1.75;
     }
 
     & h2 br {

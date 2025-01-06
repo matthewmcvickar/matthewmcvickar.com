@@ -1,7 +1,9 @@
+@use "variables";
+
 .page-home {
   & .portrait {
     display: block;
-    margin: 0 auto $line auto;
+    margin: 0 auto variables.$line auto;
     max-width: 250px;
     border-radius: 50%;
     overflow: hidden;
@@ -11,16 +13,17 @@
     font-weight: bold;
   }
 
-  @media (max-width: $screen-xs-max) {
+  @media (max-width: variables.$screen-xs-max) {
     & .intro h2 {
       display: none;
     }
   }
 
   & .for-hire {
-    margin-left: -$line;
-    margin-right: -$line;
-    padding: $line;
+    margin-left: -(variables.$line);
+    margin-right: -(variables.$line);
+    padding: variables.$line;
+    display: block;
 
     background: linear-gradient(180deg, $blue 0%, $dark-blue 100%);
     color: white;
@@ -45,7 +48,7 @@
   }
 
   & .links {
-    $link-padding: $line/3;
+    $link-padding: variables.$third-line;
 
     & ul {
       list-style: none;
@@ -53,7 +56,7 @@
     }
 
     & li {
-      color: $gray;
+      color: variables.$gray;
       padding: $link-padding 0;
       // text-indent: -$link-padding;
 
@@ -62,8 +65,8 @@
       }
 
       & code {
-        background: $light-gray;
-        border-radius: $curve;
+        background: variables.$light-gray;
+        border-radius: variables.$curve;
         padding: 1px 2px;
       }
     }
@@ -73,7 +76,7 @@
     }
   }
 
-  @media (min-width: $screen-md) {
+  @media (min-width: variables.$screen-md) {
     & .intro img {
       margin-bottom: 0;
     }
@@ -83,6 +86,8 @@
       padding: $line;
 
       display: flex;
+      border-radius: variables.$curve-big;
+      padding: variables.$line;
 
       h2 {
         margin-top: -3px;
@@ -90,11 +95,11 @@
     }
   }
 
-  @media (min-width: $screen-sm) {
+  @media (min-width: variables.$screen-sm) {
     & .intro img {
       float: right;
-      margin-top: $line/3;
-      margin-left: $line;
+      margin-top: variables.$third-line;
+      margin-left: variables.$line;
       width: 175px;
       border-radius: 50%;
       overflow: hidden;

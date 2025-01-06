@@ -1,6 +1,8 @@
+@use "variables";
+
 .site-nav {
   font-weight: bold;
-  margin-top: $line/3;
+  margin-top: variables.$third-line;
   text-align: center;
 
   & ul,
@@ -21,9 +23,9 @@
     color: black;
   }
 
-  @media (min-width: $screen-md) {
+  @media (min-width: variables.$screen-md) {
     margin-top: 0;
-    margin-left: $indent;
+    margin-left: variables.$indent;
     text-align: left;
 
     & a {
