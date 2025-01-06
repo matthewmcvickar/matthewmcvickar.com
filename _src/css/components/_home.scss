@@ -28,6 +28,12 @@
     background: linear-gradient(180deg, variables.$blue 0%, variables.$dark-blue 100%);
     color: white;
 
+    & *::selection,
+    & *::-moz-selection {
+      background-color: #fff !important;
+      color: #000 !important;
+    }
+
     & h2 {
       color: white;
       font-size: 28px;
