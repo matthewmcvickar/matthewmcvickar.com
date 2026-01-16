@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Additional reset. */
 h1,
 h2,
 h3,
@@ -13,7 +12,6 @@ ol,
 ul,
 li,
 p {
-  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -43,8 +41,8 @@ body {
 }
 
 a {
-  color: variables.$blue;
-  text-decoration: none;
+  color: variables.$shirt-blue;
+  text-decoration: underline;
   transition: color 0.15s ease-in-out;
 
   &:hover {
@@ -73,7 +71,7 @@ h4
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
   margin-top: variables.$line;
@@ -81,15 +79,19 @@ h1 {
 }
 
 h2 {
-  color: variables.$slate;
-  font-size: 18px;
+  color: variables.$green;
+  font-size: 20px;
   margin: variables.$line 0 variables.$half-line;
   text-transform: uppercase;
+
+  & a {
+    text-decoration: none;
+  }
 }
 
 h3 {
   color: variables.$dark;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 0 variables.$half-line 0;
 }
 
@@ -101,7 +103,7 @@ h4 {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.45;
   margin: 0;
   padding: 0 0 variables.$half-line;
 
@@ -111,14 +113,18 @@ p {
 }
 
 ul {
-  list-style: square;
+  list-style: none;
   margin: 0;
   padding: 0 0 0 variables.$line;
 }
 
 li {
-  line-height: 1.6;
-  padding: 0;
+  line-height: 1.45;
+  padding: variables.$third-line 0;
+}
+
+.site-header a {
+  text-decoration: none;
 }
 
 .site-content {
