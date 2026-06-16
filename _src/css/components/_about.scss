@@ -1,9 +1,0 @@
-@use "variables";
-
-.page-about {
-  & img {
-    float: right;
-    margin: variables.$third-line 0 variables.$line variables.$line;
-    width: 45%;
-  }
-}
